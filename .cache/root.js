@@ -1,133 +1,209 @@
-import React from "react"
-import { Router, Location, BaseContext } from "@reach/router"
+import React, { createElement } from "react"
+import { Router, Route, matchPath, withRouter } from "react-router-dom"
 import { ScrollContext } from "gatsby-react-router-scroll"
-
-import {
-  shouldUpdateScroll,
-  init as navigationInit,
-  RouteUpdates,
-} from "./navigation"
+import history from "./history"
 import { apiRunner } from "./api-runner-browser"
+import syncRequires from "./sync-requires"
+import pages from "./pages.json"
+import redirects from "./redirects.json"
+import ComponentRenderer from "./component-renderer"
 import loader from "./loader"
-import JSONStore from "./json-store"
-import EnsureResources from "./ensure-resources"
 
-import { reportError, clearError } from "./error-overlay-handler"
+import * as ErrorOverlay from "react-error-overlay"
+
+// Report runtime errors
+ErrorOverlay.startReportingRuntimeErrors({
+  onError: () => {},
+  filename: `/commons.js`,
+})
+ErrorOverlay.setEditorHandler(errorLocation =>
+  window.fetch(
+    `/__open-stack-frame-in-editor?fileName=` +
+      window.encodeURIComponent(errorLocation.fileName) +
+      `&lineNumber=` +
+      window.encodeURIComponent(errorLocation.lineNumber || 1)
+  )
+)
 
 if (window.__webpack_hot_middleware_reporter__ !== undefined) {
-  const overlayErrorID = `webpack`
   // Report build errors
   window.__webpack_hot_middleware_reporter__.useCustomOverlay({
     showProblems(type, obj) {
       if (type !== `errors`) {
-        clearError(overlayErrorID)
+        ErrorOverlay.dismissBuildError()
         return
       }
-      reportError(overlayErrorID, obj[0])
+      ErrorOverlay.reportBuildError(obj[0])
     },
     clear() {
-      clearError(overlayErrorID)
+      ErrorOverlay.dismissBuildError()
     },
   })
 }
 
-navigationInit()
+loader.addPagesArray(pages)
+loader.addDevRequires(syncRequires)
+window.___loader = loader
 
-// In gatsby v2 if Router is used in page using matchPaths
-// paths need to contain full path.
-// For example:
-//   - page have `/app/*` matchPath
-//   - inside template user needs to use `/app/xyz` as path
-// Resetting `basepath`/`baseuri` keeps current behaviour
-// to not introduce breaking change.
-// Remove this in v3
-const RouteHandler = props => (
-  <BaseContext.Provider
-    value={{
-      baseuri: `/`,
-      basepath: `/`,
-    }}
-  >
-    <JSONStore {...props} />
-  </BaseContext.Provider>
-)
+// Convert to a map for faster lookup in maybeRedirect()
+const redirectMap = redirects.reduce((map, redirect) => {
+  map[redirect.fromPath] = redirect
+  return map
+}, {})
 
-class LocationHandler extends React.Component {
-  render() {
-    let { location } = this.props
+// Check for initial page-load redirect
+maybeRedirect(location.pathname)
 
-    if (!loader.isPageNotFound(location.pathname)) {
-      return (
-        <EnsureResources location={location}>
-          {locationAndPageResources => (
-            <RouteUpdates location={location}>
-              <ScrollContext
-                location={location}
-                shouldUpdateScroll={shouldUpdateScroll}
-              >
-                <Router
-                  basepath={__BASE_PATH__}
-                  location={location}
-                  id="gatsby-focus-wrapper"
-                >
-                  <RouteHandler
-                    path={encodeURI(
-                      locationAndPageResources.pageResources.page.matchPath ||
-                        locationAndPageResources.pageResources.page.path
-                    )}
-                    {...this.props}
-                    {...locationAndPageResources}
-                  />
-                </Router>
-              </ScrollContext>
-            </RouteUpdates>
-          )}
-        </EnsureResources>
-      )
-    }
+// Call onRouteUpdate on the initial page load.
+apiRunner(`onRouteUpdate`, {
+  location: history.location,
+  action: history.action,
+})
 
-    const dev404PageResources = loader.loadPageSync(`/dev-404-page`)
-    const real404PageResources = loader.loadPageSync(`/404.html`)
-    let custom404
-    if (real404PageResources) {
-      custom404 = (
-        <JSONStore {...this.props} pageResources={real404PageResources} />
-      )
-    }
+function attachToHistory(history) {
+  if (!window.___history) {
+    window.___history = history
 
-    return (
-      <RouteUpdates location={location}>
-        <Router
-          basepath={__BASE_PATH__}
-          location={location}
-          id="gatsby-focus-wrapper"
-        >
-          <RouteHandler
-            path={location.pathname}
-            location={location}
-            pageResources={dev404PageResources}
-            custom404={custom404}
-          />
-        </Router>
-      </RouteUpdates>
-    )
+    history.listen((location, action) => {
+      if (!maybeRedirect(location.pathname)) {
+        apiRunner(`onRouteUpdate`, { location, action })
+      }
+    })
   }
 }
 
-const Root = () => (
-  <Location>
-    {locationContext => <LocationHandler {...locationContext} />}
-  </Location>
+function maybeRedirect(pathname) {
+  const redirect = redirectMap[pathname]
+
+  if (redirect != null) {
+    const pageResources = loader.getResourcesForPathname(pathname)
+
+    if (pageResources != null) {
+      console.error(
+        `The route "${pathname}" matches both a page and a redirect; this is probably not intentional.`
+      )
+    }
+
+    history.replace(redirect.toPath)
+    return true
+  } else {
+    return false
+  }
+}
+
+function shouldUpdateScroll(prevRouterProps, { location: { pathname } }) {
+  const results = apiRunner(`shouldUpdateScroll`, {
+    prevRouterProps,
+    pathname,
+  })
+  if (results.length > 0) {
+    return results[0]
+  }
+
+  if (prevRouterProps) {
+    const {
+      location: { pathname: oldPathname },
+    } = prevRouterProps
+    if (oldPathname === pathname) {
+      return false
+    }
+  }
+  return true
+}
+
+let noMatch
+for (let i = 0; i < pages.length; i++) {
+  if (/^\/dev-404-page/.test(pages[i].path)) {
+    noMatch = pages[i]
+    break
+  }
+}
+
+const addNotFoundRoute = () => {
+  if (noMatch) {
+    return createElement(Route, {
+      key: `404-page`,
+      component: props =>
+        createElement(syncRequires.components[noMatch.componentChunkName], {
+          ...props,
+          ...syncRequires.json[noMatch.jsonName],
+        }),
+    })
+  } else {
+    return null
+  }
+}
+
+const push = (to) => {
+  window.___history.push(to)
+}
+
+const replace = (to) => {
+  window.___history.replace(to)
+}
+
+window.___push = push
+window.___replace = replace
+window.___navigateTo = push
+
+const AltRouter = apiRunner(`replaceRouterComponent`, { history })[0]
+const DefaultRouter = ({ children }) => (
+  <Router history={history}>{children}</Router>
 )
 
-// Let site, plugins wrap the site e.g. for Redux.
-const WrappedRoot = apiRunner(
-  `wrapRootElement`,
-  { element: <Root /> },
-  <Root />,
-  ({ result, plugin }) => {
-    return { element: result }
-  }
-).pop()
+const ComponentRendererWithRouter = withRouter(ComponentRenderer)
 
-export default () => WrappedRoot
+// Always have to have one top-level layout
+// can have ones below that. Find page, if has different
+// parent layout(s), loop through those until finally the
+// page. Tricky part is avoiding re-mounting I think...
+
+const Root = () =>
+  createElement(
+    AltRouter ? AltRouter : DefaultRouter,
+    null,
+    createElement(
+      ScrollContext,
+      { shouldUpdateScroll },
+      createElement(ComponentRendererWithRouter, {
+        layout: true,
+        children: layoutProps =>
+          createElement(Route, {
+            render: routeProps => {
+              const props = layoutProps ? layoutProps : routeProps
+              attachToHistory(props.history)
+              const { pathname } = props.location
+              const pageResources = loader.getResourcesForPathname(pathname)
+              if (pageResources && pageResources.component) {
+                return createElement(ComponentRenderer, {
+                  key: `normal-page`,
+                  page: true,
+                  ...props,
+                  pageResources,
+                })
+              } else {
+                const dev404Page = pages.find(p =>
+                  /^\/dev-404-page/.test(p.path)
+                )
+                return createElement(Route, {
+                  key: `404-page`,
+                  component: props =>
+                    createElement(
+                      syncRequires.components[dev404Page.componentChunkName],
+                      {
+                        ...props,
+                        ...syncRequires.json[dev404Page.jsonName],
+                      }
+                    ),
+                })
+              }
+            },
+          }),
+      })
+    )
+  )
+
+// Let site, plugins wrap the site e.g. for Redux.
+const WrappedRoot = apiRunner(`wrapRootComponent`, { Root }, Root)[0]
+
+export default WrappedRoot

@@ -1,4 +1,7 @@
-var plugins = []
+var plugins = [{
+      plugin: require('/Users/johannes/Programmering/johannesloor.se/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      options: {"plugins":[]},
+    }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {
@@ -14,22 +17,17 @@ var plugins = []
 const apis = require(`./api-ssr-docs`)
 
 // Run the specified API in any plugins that have implemented it
-module.exports = (api, args, defaultReturn, argTransform) => {
+module.exports = (api, args, defaultReturn) => {
   if (!apis[api]) {
     console.log(`This API doesn't exist`, api)
   }
 
   // Run each plugin in series.
-  // eslint-disable-next-line no-undef
   let results = plugins.map(plugin => {
-    if (!plugin.plugin[api]) {
-      return undefined
+    if (plugin.plugin[api]) {
+      const result = plugin.plugin[api](args, plugin.options)
+      return result
     }
-    const result = plugin.plugin[api](args, plugin.options)
-    if (result && argTransform) {
-      args = argTransform({ args, result })
-    }
-    return result
   })
 
   // Filter out undefined results.
