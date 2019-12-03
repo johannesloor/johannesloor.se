@@ -1,4 +1,10 @@
 var plugins = [{
+      plugin: require('/Users/johannes/Programmering/johannesloor.se/node_modules/gatsby-remark-images/gatsby-ssr'),
+      options: {"plugins":[],"maxWidth":1140,"quality":90,"linkImagesToOriginal":false},
+    },{
+      plugin: require('/Users/johannes/Programmering/johannesloor.se/node_modules/gatsby-plugin-canonical-urls/gatsby-ssr'),
+      options: {"plugins":[],"siteUrl":"https://gatsby-starter-typescript-plus.netlify.com"},
+    },{
       plugin: require('/Users/johannes/Programmering/johannesloor.se/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     }]
@@ -17,17 +23,22 @@ var plugins = [{
 const apis = require(`./api-ssr-docs`)
 
 // Run the specified API in any plugins that have implemented it
-module.exports = (api, args, defaultReturn) => {
+module.exports = (api, args, defaultReturn, argTransform) => {
   if (!apis[api]) {
     console.log(`This API doesn't exist`, api)
   }
 
   // Run each plugin in series.
+  // eslint-disable-next-line no-undef
   let results = plugins.map(plugin => {
-    if (plugin.plugin[api]) {
-      const result = plugin.plugin[api](args, plugin.options)
-      return result
+    if (!plugin.plugin[api]) {
+      return undefined
     }
+    const result = plugin.plugin[api](args, plugin.options)
+    if (result && argTransform) {
+      args = argTransform({ args, result })
+    }
+    return result
   })
 
   // Filter out undefined results.
