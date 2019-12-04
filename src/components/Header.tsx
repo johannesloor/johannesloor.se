@@ -6,9 +6,16 @@ import { Link } from "gatsby";
 import { heights, dimensions, colors } from "../styles/variables";
 import Container from "./Container";
 
-const StyledHeader = styled.header`
-  height: ${heights.header}px;
-  padding: 0 ${dimensions.containerPadding}rem;
+interface HeaderProps {
+  fontSize?: number;
+  height?: number;
+}
+
+const StyledHeader = styled.header<HeaderProps>`
+  height: ${props => {
+    return props.height;
+  }}px;
+  padding: ${dimensions.containerPadding}rem;
   background-color: ${colors.white};
   color: ${transparentize(0.5, colors.white)};
   position: sticky;
@@ -23,10 +30,13 @@ const HeaderInner = styled(Container)`
   height: 100%;
 `;
 
-const HomepageLink = styled(Link)`
+const HomepageLink = styled(Link)<HeaderProps>`
   color: ${colors.black};
-  font-size: 8rem;
-  font-weight: 200;
+  font-size: ${props => {
+    return props.fontSize;
+  }}rem;
+  font-weight: 10;
+  transition: 0.2s;
   &:hover,
   &:focus {
     text-decoration: none;
@@ -58,17 +68,18 @@ function DivideString(name: string) {
   return letters;
 }
 
-interface HeaderProps {
-  title: string;
-}
-
-const Header: React.FC<HeaderProps> = () => (
-  <StyledHeader>
+const Header: React.FC<HeaderProps> = ({ fontSize, height }) => (
+  <StyledHeader height={height ? height : heights.headerSmall}>
     <HeaderInner>
-      <HomepageLink to="/">
-        <FirstName>{DivideString("JOHANNES")}</FirstName>
-        <LastName>{DivideString("LOOR")}</LastName>
-      </HomepageLink>
+      <HeaderInner>
+        <HomepageLink
+          fontSize={fontSize ? fontSize : dimensions.headerFonts.small}
+          to="/"
+        >
+          <FirstName>{DivideString("JOHANNES")}</FirstName>
+          <LastName>{DivideString("LOOR")}</LastName>
+        </HomepageLink>
+      </HeaderInner>
     </HeaderInner>
   </StyledHeader>
 );

@@ -4,24 +4,12 @@ import { Link } from "gatsby";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
+import { heights } from "../styles/variables";
 
 const IndexPage = () => (
-  <IndexLayout>
+  <IndexLayout fontSize={8} height={heights.headerBig}>
     <Page>
       <Container>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
-        <h1>Developer</h1>
         <h1>Developer</h1>
         <Link to="/page-2/">Go to page 2</Link>
       </Container>

@@ -48,6 +48,10 @@ export const dimensions = {
     regular: 16,
     large: 18
   },
+  headerFonts: {
+    large: 8,
+    small: 3
+  },
   headingSizes: {
     h1: 2.441,
     h2: 1.953,
@@ -62,5 +66,6 @@ export const dimensions = {
 };
 
 export const heights = {
-  header: 250
+  headerBig: 270,
+  headerSmall: 120
 };
