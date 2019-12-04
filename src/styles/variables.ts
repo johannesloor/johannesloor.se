@@ -66,6 +66,6 @@ export const dimensions = {
 };
 
 export const heights = {
-  headerBig: 270,
+  headerBig: 280,
   headerSmall: 120
 };
