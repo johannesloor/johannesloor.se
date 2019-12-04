@@ -11,6 +11,9 @@ const StyledHeader = styled.header`
   padding: 0 ${dimensions.containerPadding}rem;
   background-color: ${colors.white};
   color: ${transparentize(0.5, colors.white)};
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;
 
 const HeaderInner = styled(Container)`
@@ -46,6 +49,15 @@ const Letter = styled.div`
   }
 `;
 
+//Divides input to elements of <Letter>
+function DivideString(name: string) {
+  let letters = [];
+  for (var i = 0; i < name.length; i++) {
+    letters.push(<Letter>{name[i]}</Letter>);
+  }
+  return letters;
+}
+
 interface HeaderProps {
   title: string;
 }
@@ -54,22 +66,8 @@ const Header: React.FC<HeaderProps> = () => (
   <StyledHeader>
     <HeaderInner>
       <HomepageLink to="/">
-        <FirstName>
-          <Letter>J</Letter>
-          <Letter>O</Letter>
-          <Letter>H</Letter>
-          <Letter>A</Letter>
-          <Letter>N</Letter>
-          <Letter>N</Letter>
-          <Letter>E</Letter>
-          <Letter>S</Letter>
-        </FirstName>
-        <LastName>
-          <Letter>L</Letter>
-          <Letter>O</Letter>
-          <Letter>O</Letter>
-          <Letter>R</Letter>
-        </LastName>
+        <FirstName>{DivideString("JOHANNES")}</FirstName>
+        <LastName>{DivideString("LOOR")}</LastName>
       </HomepageLink>
     </HeaderInner>
   </StyledHeader>
