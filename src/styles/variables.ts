@@ -1,6 +1,8 @@
 /* eslint-disable max-len */
 
 export const colors = {
+  background: "#FFD972",
+  hover: "#fbfafa",
   brand: "#663399",
   lilac: "#9d7cbf",
   accent: "#ffb238",

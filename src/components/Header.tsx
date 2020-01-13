@@ -22,7 +22,7 @@ const StyledHeader = styled.header<HeaderProps>`
     height: 20%;
   }
   padding: ${dimensions.containerPadding}rem;
-  background-color: ${colors.white};
+  background-color: ${colors.background};
 
   color: ${transparentize(0.5, colors.white)};
   position: sticky;
@@ -40,7 +40,7 @@ const HeaderInner = styled(Container)`
   &:hover,
   &:focus {
     text-decoration: none;
-    border-color: red;
+    border-color: ${colors.hover};
   }
 `;
 
@@ -79,7 +79,7 @@ const LastName = styled(FirstName)`
 const Letter = styled.div`
   display: inline-block;
   &:hover {
-    color: red;
+    color: ${colors.hover};
   }
 `;
 

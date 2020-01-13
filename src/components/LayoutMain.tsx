@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
+import { colors } from "../styles/variables";
 
 const StyledLayoutMain = styled.main`
   display: flex;
@@ -7,6 +8,7 @@ const StyledLayoutMain = styled.main`
   flex: 1;
   align-items: center;
   z-index: 0;
+  background: ${colors.background};
 `;
 
 interface LayoutMainProps {

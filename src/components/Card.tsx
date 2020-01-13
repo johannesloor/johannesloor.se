@@ -4,9 +4,8 @@ import { heights, dimensions, colors, breakpoints } from "../styles/variables";
 import { Link } from "gatsby";
 
 const CardLink = styled(Link)`
-  width: 50%;
-  height: 9rem;
-  padding-top: 3rem;
+  width: 100%;
+  height: 100%;
   color: black;
   margin: 1rem;
   font-size: 21pt;
@@ -15,13 +14,11 @@ const CardLink = styled(Link)`
   border: 2px solid black;
   @media (max-width: ${breakpoints.sm + "px"}) {
     font-size: 15pt;
-    height: 6rem;
-    padding-bottom: 3rem;
-    padding-top: 2rem;
+    margin: 0;
+    margin-bottom: 2rem;
   }
   &:hover {
-    border-color: red;
-    color: red;
+    border-color: ${colors.hover};
     text-decoration: none;
   }
   &:focus {
@@ -30,12 +27,11 @@ const CardLink = styled(Link)`
 `;
 
 interface CardProps {
-  title: string;
   url?: string;
 }
 
-const Card: React.FC<CardProps> = ({ title, url }) => (
-  <CardLink to={url ? url : "/"}>{title}</CardLink>
+const Card: React.FC<CardProps> = ({ children, url }) => (
+  <CardLink to={url ? url : "/"}>{children}</CardLink>
 );
 
 export default Card;
