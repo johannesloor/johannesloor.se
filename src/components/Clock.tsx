@@ -6,7 +6,7 @@ const ClockWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;/*${colors.hover};*/
+  background: transparent;
   font-size: 6pt;
   color: black;
   height: 8rem;
@@ -18,7 +18,6 @@ const ClockWrapper = styled.div`
   }
   border: 5px solid white;
   border-radius: 50%;
-
 `;
 
 const Dot = styled.div`
