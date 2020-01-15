@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { heights, dimensions, colors, breakpoints } from "../styles/variables";
+import { breakpoints } from "../styles/variables";
 import { Link } from "gatsby";
 
 const CardLink = styled(Link)`
@@ -18,7 +18,7 @@ const CardLink = styled(Link)`
     margin-bottom: 2rem;
   }
   &:hover {
-    border-color: ${colors.hover};
+    border: 2px solid white;
     text-decoration: none;
   }
   &:focus {

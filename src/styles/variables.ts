@@ -32,7 +32,7 @@ export const fonts = {
 };
 
 export const breakpoints = {
-  xs: 0,
+  xs: 330,
   sm: 576,
   md: 768,
   lg: 992,

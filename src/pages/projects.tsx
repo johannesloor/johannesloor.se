@@ -33,7 +33,7 @@ const PageTwo = () => (
           <Card url="/pepper">Pepper</Card>
         </CardWrapper>
         <CardWrapper>
-          <Card url="/brushi">Brushi</Card>
+          <Card url="/synthesEYEzer">SynthesEYEzer</Card>
           <Card url="/pepper">Pepper</Card>
         </CardWrapper>
       </Container>

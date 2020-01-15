@@ -1,6 +1,7 @@
 import * as React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+import styled from "@emotion/styled";
 
 import "modern-normalize";
 import "../styles/normalize";
@@ -23,6 +24,7 @@ interface HeaderProps {
   fontSize?: number;
   height?: number;
 }
+
 const IndexLayout: React.FC<HeaderProps> = ({ children, fontSize, height }) => (
   <StaticQuery
     query={graphql`

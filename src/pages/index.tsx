@@ -17,6 +17,9 @@ const CardWrapper = styled.div`
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
   }
+  @media (max-width: ${breakpoints.xs + "px"}) {
+    margin-top: 60px;
+  }
 `;
 
 const Title = styled.h1`
@@ -30,6 +33,9 @@ const Title = styled.h1`
 
 const ButtonText = styled.div`
   padding: 3rem;
+  @media (max-width: ${breakpoints.xs + "px"}) {
+    padding: 2rem;
+  }
 `;
 
 const IndexPage = () => (

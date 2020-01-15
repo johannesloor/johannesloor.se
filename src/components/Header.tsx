@@ -5,6 +5,7 @@ import { Link } from "gatsby";
 
 import { heights, dimensions, colors, breakpoints } from "../styles/variables";
 import Container from "./Container";
+import Clock from "./Clock";
 
 interface HeaderProps {
   fontSize?: number;
@@ -12,6 +13,9 @@ interface HeaderProps {
 }
 
 const StyledHeader = styled.header<HeaderProps>`
+  display: flex;
+  flex-direction: row;
+
   height: ${props => {
     return props.height;
   }}px;
@@ -23,7 +27,6 @@ const StyledHeader = styled.header<HeaderProps>`
   }
   padding: ${dimensions.containerPadding}rem;
   background-color: ${colors.background};
-
   color: ${transparentize(0.5, colors.white)};
   position: sticky;
   top: 0;
@@ -32,7 +35,7 @@ const StyledHeader = styled.header<HeaderProps>`
 
 const HeaderInner = styled(Container)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   height: auto;
   border: 1px solid transparent;
@@ -40,7 +43,7 @@ const HeaderInner = styled(Container)`
   &:hover,
   &:focus {
     text-decoration: none;
-    border-color: ${colors.hover};
+    /*border-color: ${colors.hover};*/
   }
 `;
 
@@ -53,7 +56,10 @@ const HomepageLink = styled(Link)<HeaderProps>`
     font-size: 62pt;
   }
   @media (max-width: ${breakpoints.sm + "px"}) {
-    font-size: 37pt;
+    font-size: 30pt;
+  }
+  @media (max-width: ${breakpoints.xs + "px"}) {
+    font-size: 20pt;
   }
 
   font-weight: 60;
@@ -78,8 +84,16 @@ const LastName = styled(FirstName)`
 
 const Letter = styled.div`
   display: inline-block;
+  animation: spin 6s linear infinite;
+  animation-play-state: paused;
   &:hover {
     color: ${colors.hover};
+    animation-play-state: running;
+  }
+  @keyframes spin {
+    100% {
+      transform: rotate(2turn);
+    }
   }
 `;
 
@@ -87,13 +101,14 @@ const Letter = styled.div`
 function DivideString(name: string) {
   let letters = [];
   for (var i = 0; i < name.length; i++) {
-    letters.push(<Letter>{name[i]}</Letter>);
+    letters.push(<Letter key={i.toString()}>{name[i]}</Letter>);
   }
   return letters;
 }
 
 const Header: React.FC<HeaderProps> = ({ fontSize, height }) => (
   <StyledHeader height={height ? height : heights.headerSmall}>
+    <Clock />
     <HeaderInner>
       <HomepageLink
         fontSize={fontSize ? fontSize : dimensions.headerFonts.small}
