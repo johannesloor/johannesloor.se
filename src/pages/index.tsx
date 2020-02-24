@@ -25,23 +25,42 @@ const Title = styled.h1`
   display: block;
   width: 100%;
   text-align: center;
+  font-style: italic;
   @media (max-width: ${breakpoints.sm + "px"}) {
     font-size: 20pt;
   }
 `;
 
+const VaryingWord = styled.div`
+  display: inline;
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+  &:hover {
+    color: red;
+    top: -10px;
+  }
+`;
+
 const ButtonText = styled.div`
-  padding: 3rem;
+  padding: 2rem;
   @media (max-width: ${breakpoints.xs + "px"}) {
     padding: 2rem;
   }
 `;
 
+let interests = ["Apple", "music", "smart home"];
+let wordCount = Math.floor(Math.random() * Math.floor(interests.length));
+let randomWord = interests[wordCount];
+
 const IndexPage = () => (
   <IndexLayout fontSize={8} height={heights.headerBig}>
     <Page>
       <Container>
-        <Title>Developer, engineer and Apple enthusiast</Title>
+        <Title>
+          Developer, engineer and <VaryingWord>{randomWord}</VaryingWord>{" "}
+          enthusiast
+        </Title>
         <CardWrapper>
           <Card url="/projects">
             <ButtonText>Projects</ButtonText>

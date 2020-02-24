@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { breakpoints } from "../styles/variables";
+import { Link } from "gatsby";
 
 const ClockWrapper = styled.div`
   display: flex;
@@ -97,18 +98,20 @@ function getMinuteAngle() {
   return angles[1];
 }
 const Clock: React.FC = () => (
-  <ClockWrapper>
-    <Dot></Dot>
-    <HourWrapper>
-      <HourHand>LOOR</HourHand>
-    </HourWrapper>
-    <MinuteWrapper>
-      <MinuteHand>JOHANNES</MinuteHand>
-    </MinuteWrapper>
-    <SecondWrapper>
-      <SecondHand>MICHAEL</SecondHand>
-    </SecondWrapper>
-  </ClockWrapper>
+  <Link to="/">
+    <ClockWrapper>
+      <Dot></Dot>
+      <HourWrapper>
+        <HourHand>LOOR</HourHand>
+      </HourWrapper>
+      <MinuteWrapper>
+        <MinuteHand>JOHANNES</MinuteHand>
+      </MinuteWrapper>
+      <SecondWrapper>
+        <SecondHand>MICHAEL</SecondHand>
+      </SecondWrapper>
+    </ClockWrapper>
+  </Link>
 );
 
 export default Clock;
