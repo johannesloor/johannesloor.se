@@ -14,8 +14,8 @@ const ClockWrapper = styled.div`
   width: 8rem;
   @media (max-width: ${breakpoints.sm + "px"}) {
     font-size: 4pt;
-    height: 6rem;
-    width: 6rem;
+    height: 5.5rem;
+    width: 5.5rem;
   }
   border: 5px solid white;
   border-radius: 50%;

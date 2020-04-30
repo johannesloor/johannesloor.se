@@ -3,22 +3,14 @@ import styled from "@emotion/styled";
 import { transparentize } from "polished";
 import { Link } from "gatsby";
 
-import { heights, dimensions, colors, breakpoints } from "../styles/variables";
+import { dimensions, colors, breakpoints } from "../styles/variables";
 import Container from "./Container";
 import Clock from "./Clock";
 
-interface HeaderProps {
-  fontSize?: number;
-  height?: number;
-}
-
-const StyledHeader = styled.header<HeaderProps>`
+const StyledHeader = styled.header`
   display: flex;
   flex-direction: row;
-
-  height: ${props => {
-    return props.height;
-  }}px;
+  height: 100%;
   @media (max-width: ${breakpoints.md + "px"}) {
     height: 70%;
   }
@@ -47,19 +39,18 @@ const HeaderInner = styled(Container)`
   }
 `;
 
-const HomepageLink = styled(Link)<HeaderProps>`
+const HomepageLink = styled(Link)`
   color: ${colors.black};
-  font-size: ${props => {
-    return props.fontSize;
-  }}rem;
-  @media (max-width: ${breakpoints.md + "px"}) {
-    font-size: 62pt;
+  font-size: ${dimensions.headerFonts.large + "rem"};
+
+  @media (max-width: ${breakpoints.lg + "px"}) {
+    font-size: ${dimensions.headerFonts.medium + "rem"};
   }
   @media (max-width: ${breakpoints.sm + "px"}) {
-    font-size: 30pt;
+    font-size: ${dimensions.headerFonts.small + "rem"};
   }
   @media (max-width: ${breakpoints.xs + "px"}) {
-    font-size: 20pt;
+    font-size: ${dimensions.headerFonts.xsmall + "rem"};
   }
 
   font-weight: 60;
@@ -106,14 +97,11 @@ function DivideString(name: string) {
   return letters;
 }
 
-const Header: React.FC<HeaderProps> = ({ fontSize, height }) => (
-  <StyledHeader height={height ? height : heights.headerSmall}>
+const Header: React.FC = () => (
+  <StyledHeader>
     <Clock />
     <HeaderInner>
-      <HomepageLink
-        fontSize={fontSize ? fontSize : dimensions.headerFonts.small}
-        to="/"
-      >
+      <HomepageLink to="/">
         <FirstName>{DivideString("JOHANNES")}</FirstName>
         <LastName>{DivideString("LOOR")}</LastName>
       </HomepageLink>

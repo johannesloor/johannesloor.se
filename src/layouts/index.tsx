@@ -19,12 +19,7 @@ interface StaticQueryProps {
   };
 }
 
-interface HeaderProps {
-  fontSize?: number;
-  height?: number;
-}
-
-const IndexLayout: React.FC<HeaderProps> = ({ children, fontSize, height }) => (
+const IndexLayout: React.FC = ({ children }) => (
   <StaticQuery
     query={graphql`
       query IndexLayoutQuery {
@@ -43,12 +38,12 @@ const IndexLayout: React.FC<HeaderProps> = ({ children, fontSize, height }) => (
           meta={[
             {
               name: "description",
-              content: data.site.siteMetadata.description
+              content: data.site.siteMetadata.description,
             },
-            { name: "keywords", content: data.site.siteMetadata.keywords }
+            { name: "keywords", content: data.site.siteMetadata.keywords },
           ]}
         />
-        <Header fontSize={fontSize} height={height} />
+        <Header />
         <LayoutMain>{children}</LayoutMain>
       </LayoutRoot>
     )}

@@ -5,25 +5,31 @@ import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
+import me from "../images/me.jpg";
+import me3 from "../images/me3.jpg";
+import me4 from "../images/me4.jpg";
+import me6 from "../images/me6.jpg";
 
-import { heights, breakpoints } from "../styles/variables";
+import { breakpoints } from "../styles/variables";
 
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: 90px;
+  margin-top: 6rem;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
+    margin-top: 3rem;
   }
   @media (max-width: ${breakpoints.xs + "px"}) {
-    margin-top: 60px;
+    margin-top: 2rem;
   }
 `;
 
 const Title = styled.h1`
   display: block;
   width: 100%;
+  padding-top: 1rem;
   text-align: center;
   font-style: italic;
   @media (max-width: ${breakpoints.sm + "px"}) {
@@ -49,18 +55,44 @@ const ButtonText = styled.div`
   }
 `;
 
+const PictureWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  justify-self: center;
+  flex-wrap: wrap;
+  width: 90vw;
+`;
+const ProfilePic = styled.img`
+  width: 15%;
+  height: 100%;
+  border-radius: 10%;
+  @media (max-width: ${breakpoints.xl + "px"}) {
+    width: 25%;
+  }
+  @media (max-width: ${breakpoints.sm + "px"}) {
+    width: 25%;
+  }
+`;
+
 let interests = ["Apple", "music", "smart home"];
 let wordCount = Math.floor(Math.random() * Math.floor(interests.length));
 let randomWord = interests[wordCount];
 
 const IndexPage = () => (
-  <IndexLayout fontSize={8} height={heights.headerBig}>
+  <IndexLayout>
     <Page>
+      <PictureWrapper>
+        <ProfilePic src={me}></ProfilePic>
+        <ProfilePic src={me6}></ProfilePic>
+        <ProfilePic src={me4}></ProfilePic>
+        <ProfilePic src={me3}></ProfilePic>
+      </PictureWrapper>
       <Container>
         <Title>
           Developer, engineer and <VaryingWord>{randomWord}</VaryingWord>{" "}
           enthusiast
         </Title>
+
         <CardWrapper>
           <Card url="/projects">
             <ButtonText>Projects</ButtonText>

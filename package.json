@@ -14,6 +14,7 @@
     "clean": "rimraf public",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev": "gatsby develop",
+    "dev-m": "gatsby develop -H 0.0.0.0 -p 8000",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "start": "npm run dev",
@@ -52,7 +53,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.2",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.8",
