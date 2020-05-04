@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
-import WebFont from "webfontloader";
+/*import WebFont from "webfontloader";
 WebFont.load({
   google: {
     families: ["Montserrat", "sans-serif"],
   },
-});
+});*/
 
 export const colors = {
   background: "#FFD972",
