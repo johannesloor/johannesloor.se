@@ -1,7 +1,4 @@
 var plugins = [{
-      plugin: require('/Users/johannes/Programmering/johannesloor.se/node_modules/gatsby-remark-images/gatsby-ssr'),
-      options: {"plugins":[],"maxWidth":1140,"quality":90,"linkImagesToOriginal":false},
-    },{
       plugin: require('/Users/johannes/Programmering/johannesloor.se/node_modules/gatsby-plugin-canonical-urls/gatsby-ssr'),
       options: {"plugins":[],"siteUrl":"https://gatsby-starter-typescript-plus.netlify.com"},
     },{
