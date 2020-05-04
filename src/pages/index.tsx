@@ -6,9 +6,6 @@ import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
 import me from "../images/me.jpg";
-import me3 from "../images/me3.jpg";
-import me4 from "../images/me4.jpg";
-import me6 from "../images/me6.jpg";
 
 import { breakpoints } from "../styles/variables";
 
@@ -83,9 +80,9 @@ const IndexPage = () => (
     <Page>
       <PictureWrapper>
         <ProfilePic src={me}></ProfilePic>
-        <ProfilePic src={me6}></ProfilePic>
-        <ProfilePic src={me4}></ProfilePic>
-        <ProfilePic src={me3}></ProfilePic>
+        <ProfilePic src={me}></ProfilePic>
+        <ProfilePic src={me}></ProfilePic>
+        <ProfilePic src={me}></ProfilePic>
       </PictureWrapper>
       <Container>
         <Title>
