@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-
-import { dimensions } from "../styles/variables";
+import { dimensions, breakpoints } from "../styles/variables";
 
 const StyledPage = styled.div`
   display: flex;
@@ -10,6 +9,9 @@ const StyledPage = styled.div`
   flex: 1;
   position: relative;
   padding: ${dimensions.containerPadding}rem;
+  @media (max-width: ${breakpoints.sm + "px"}) {
+    padding: 5px;
+  }
   width: 100%;
 `;
 

@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
+import { breakpoints } from "../styles/variables";
 
 import { widths } from "../styles/variables";
 import { getEmSize } from "../styles/mixins";

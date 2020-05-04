@@ -10,6 +10,10 @@ const Projects = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
+  padding: 0 1rem;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
     margin: 0;
@@ -17,8 +21,8 @@ const Projects = styled.div`
 `;
 
 const Project = styled.div`
-  padding: 1rem 0;
-  border-bottom: solid black 1px;
+  padding: 1rem;
+  border-bottom: solid #dcdcdc 1px;
 `;
 
 const Description = styled.div`
@@ -47,8 +51,44 @@ const PageTwo = () => (
   <IndexLayout>
     <Page>
       <Container>
+        <h1>Projects</h1>
         <Projects>
-          <h1>Projects</h1>
+          <Project>
+            <h3>Brushi</h3>
+            <Description>
+              <DescriptionText>
+                Description Description Description Description Description
+                Description Description Description Description Description
+                Description Description
+              </DescriptionText>
+              <DescriptionImage src={brushi}></DescriptionImage>
+            </Description>
+            Contributors Links
+          </Project>
+          <Project>
+            <h3>Brushi</h3>
+            <Description>
+              <DescriptionText>
+                Description Description Description Description Description
+                Description Description Description Description Description
+                Description Description
+              </DescriptionText>
+              <DescriptionImage src={brushi}></DescriptionImage>
+            </Description>
+            Contributors Links
+          </Project>
+          <Project>
+            <h3>Brushi</h3>
+            <Description>
+              <DescriptionText>
+                Description Description Description Description Description
+                Description Description Description Description Description
+                Description Description
+              </DescriptionText>
+              <DescriptionImage src={brushi}></DescriptionImage>
+            </Description>
+            Contributors Links
+          </Project>
           <Project>
             <h3>Brushi</h3>
             <Description>
