@@ -43,7 +43,7 @@ const HomepageLink = styled(Link)`
   color: ${colors.black};
   font-size: ${dimensions.headerFonts.large + "rem"};
 
-  @media (max-width: ${breakpoints.lg + "px"}) {
+  @media (max-width: ${breakpoints.xl + "px"}) {
     font-size: ${dimensions.headerFonts.medium + "rem"};
   }
   @media (max-width: ${breakpoints.sm + "px"}) {

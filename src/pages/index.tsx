@@ -16,7 +16,7 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: 6rem;
+  margin-top: 2rem;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
     margin-top: 3rem;
@@ -66,15 +66,12 @@ const ProfilePic = styled.img`
   width: 15%;
   height: 100%;
   border-radius: 10%;
-  @media (max-width: ${breakpoints.xl + "px"}) {
-    width: 25%;
-  }
   @media (max-width: ${breakpoints.sm + "px"}) {
     width: 25%;
   }
 `;
 
-let interests = ["Apple", "music", "smart home"];
+let interests = ["Apple", "music", "smart home", "golf"];
 let wordCount = Math.floor(Math.random() * Math.floor(interests.length));
 let randomWord = interests[wordCount];
 
