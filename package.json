@@ -53,8 +53,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "typescript": "^3.5.2",
-    "webfontloader": "^1.6.28"
+    "typescript": "^3.5.2"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.8",
