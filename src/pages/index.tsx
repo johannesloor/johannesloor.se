@@ -5,7 +5,10 @@ import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
-import me from "../images/me.jpg";
+import meCap from "../images/meCap.jpg";
+import meCat from "../images/meCat.jpg";
+import meBirthday from "../images/meBirthday.jpg";
+import meSwim from "../images/meSwim.jpg";
 
 import { breakpoints } from "../styles/variables";
 
@@ -79,10 +82,10 @@ const IndexPage = () => (
   <IndexLayout>
     <Page>
       <PictureWrapper>
-        <ProfilePic src={me}></ProfilePic>
-        <ProfilePic src={me}></ProfilePic>
-        <ProfilePic src={me}></ProfilePic>
-        <ProfilePic src={me}></ProfilePic>
+        <ProfilePic src={meCap}></ProfilePic>
+        <ProfilePic src={meCat}></ProfilePic>
+        <ProfilePic src={meBirthday}></ProfilePic>
+        <ProfilePic src={meSwim}></ProfilePic>
       </PictureWrapper>
       <Container>
         <Title>
