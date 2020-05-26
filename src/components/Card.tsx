@@ -10,15 +10,17 @@ const CardLink = styled(Link)`
   margin: 1rem;
   font-size: 21pt;
   text-align: center;
+  background-color: #f0f8ff;
   border-radius: 25px;
-  border: 2px solid black;
+  border: 2px solid transparent;
   @media (max-width: ${breakpoints.sm + "px"}) {
     font-size: 15pt;
+    width: 90vw;
     margin: 0;
     margin-bottom: 2rem;
   }
   &:hover {
-    border: 2px solid white;
+    border-color: #fff7f0;
     text-decoration: none;
   }
   &:focus {

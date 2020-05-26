@@ -66,7 +66,7 @@ export const dimensions = {
     regular: 1.45,
     heading: 1.2,
   },
-  containerPadding: 1.5,
+  containerPadding: 1,
 };
 
 export const heights = {
