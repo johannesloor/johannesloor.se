@@ -20,8 +20,6 @@ const StyledHeader = styled.header`
   padding: ${dimensions.containerPadding}rem;
   background-color: ${colors.background};
   color: ${transparentize(0.5, colors.white)};
-  position: sticky;
-  top: 0;
   z-index: 1;
 `;
 
@@ -32,6 +30,7 @@ const HeaderInner = styled(Container)`
   height: auto;
   border: 1px solid transparent;
   border-radius: 25px;
+  
   &:hover,
   &:focus {
     text-decoration: none;
@@ -99,7 +98,7 @@ function DivideString(name: string) {
 
 const Header: React.FC = () => (
   <StyledHeader>
-    <Clock />
+    <Clock></Clock>
     <HeaderInner>
       <HomepageLink to="/">
         <FirstName>{DivideString("JOHANNES")}</FirstName>
