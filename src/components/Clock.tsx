@@ -100,7 +100,7 @@ const SecondHand = styled(MinuteHand)`
 const GoHomeLink = styled(Link)`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
   color: black;
   border: solid 1px transparent;
   height: 100%;
@@ -113,13 +113,12 @@ const GoHomeLink = styled(Link)`
     border: solid 1px white;
   }
   @media (max-width: ${breakpoints.sm + "px"}) {
-    padding: 0;
+    padding: 0.5rem;
   }
 `;
 
 const Clock: React.FC = () => (
   <GoHomeLink to="/">
-    Go back
     <ClockWrapper>
       <Dot></Dot>
       <HourWrapper>
@@ -132,6 +131,8 @@ const Clock: React.FC = () => (
         <SecondHand>MICHAEL</SecondHand>
       </SecondWrapper>
     </ClockWrapper>
+    Go back
+    <br />
     (in time)
   </GoHomeLink>
 );

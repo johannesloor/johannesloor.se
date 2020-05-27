@@ -66,7 +66,7 @@ const PictureWrapper = styled.div`
 const ProfilePic = styled.img`
   width: 15%;
   height: 100%;
-  border-radius: 10%;
+  border-radius: 10% 0;
   @media (max-width: ${breakpoints.md + "px"}) {
     width: 25%;
   }

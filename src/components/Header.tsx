@@ -38,7 +38,7 @@ const HeaderInner = styled(Container)`
   }
 `;
 
-const HomepageLink = styled(Link)`
+const NameWrapper = styled.div`
   color: ${colors.black};
   font-size: ${dimensions.headerFonts.large + "rem"};
 
@@ -100,10 +100,10 @@ const Header: React.FC = () => (
   <StyledHeader>
     <Clock></Clock>
     <HeaderInner>
-      <HomepageLink to="/">
+      <NameWrapper>
         <FirstName>{DivideString("JOHANNES")}</FirstName>
         <LastName>{DivideString("LOOR")}</LastName>
-      </HomepageLink>
+      </NameWrapper>
     </HeaderInner>
   </StyledHeader>
 );
