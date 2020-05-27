@@ -4,23 +4,23 @@ import { breakpoints } from "../styles/variables";
 import { Link } from "gatsby";
 
 //Sets the ClockWrapper
-function SetClockWrapper() {
+function getTimeAngles() {
   let date = new Date();
   let minutes = date.getMinutes();
   let hours = date.getHours();
-  console.log(date.getSeconds());
   let hourAngle = hours * 30 + minutes / 2 - 90;
   let minuteAngle = 90 + minutes * 6;
   let angles = [hourAngle, minuteAngle];
   return angles;
 }
-let angles = SetClockWrapper();
 
 function getHourAngle() {
+  let angles = getTimeAngles();
   return angles[0];
 }
 
 function getMinuteAngle() {
+  let angles = getTimeAngles();
   return angles[1];
 }
 
