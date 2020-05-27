@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { transparentize } from "polished";
-import { Link } from "gatsby";
 
 import { dimensions, colors, breakpoints } from "../styles/variables";
 import Container from "./Container";
