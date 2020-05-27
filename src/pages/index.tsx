@@ -67,10 +67,6 @@ const ProfilePic = styled.img`
   width: 15%;
   height: 100%;
   border-radius: 10%;
-  @media (min-height: ${breakpoints.xl + "px"}) {
-    margin: 1rem;
-    width: 30%;
-  }
   @media (max-width: ${breakpoints.md + "px"}) {
     width: 25%;
   }
