@@ -6,6 +6,7 @@ import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import brushi from "../images/Brushi_logo.png";
 import sgc from "../images/SGC.png";
+import ol from "../images/Osqledaren.png";
 
 const Project = styled.a`
   display: flex;
@@ -86,17 +87,20 @@ const PageTwo = () => (
             <DescriptionImage src={sgc}></DescriptionImage>
           </Description>
         </Project>
-        <Project>
-          <h3>Brushi</h3>
+        <Project href="https://osqledaren.se">
+          <h3>Osqledaren.se</h3>
           <Description>
             <DescriptionText>
-              Description Description Description Description Description
-              Description Description Description Description Description
-              Description Description
+              <p>
+                Osqledaren is the student union newspaper at KTH. For the
+                semester of 2019/2020 I was responsible for the website and lead
+                a team of eight, building a completely new website. The new
+                website is built using React and Gatsby with the cms on Sanity.
+              </p>
+              <p></p>
             </DescriptionText>
-            <DescriptionImage src={brushi}></DescriptionImage>
+            <DescriptionImage src={ol}></DescriptionImage>
           </Description>
-          Contributors Links
         </Project>
         <Project>
           <h3>Brushi</h3>
@@ -108,7 +112,6 @@ const PageTwo = () => (
             </DescriptionText>
             <DescriptionImage src={brushi}></DescriptionImage>
           </Description>
-          Contributors Links
         </Project>
       </Container>
     </Page>

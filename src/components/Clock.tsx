@@ -87,7 +87,6 @@ function SetClockWrapper() {
   let angles = [hourAngle, minuteAngle];
   return angles;
 }
-
 function getHourAngle() {
   let angles = SetClockWrapper();
   return angles[0];
