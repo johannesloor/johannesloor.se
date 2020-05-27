@@ -3,6 +3,27 @@ import styled from "@emotion/styled";
 import { breakpoints } from "../styles/variables";
 import { Link } from "gatsby";
 
+//Sets the ClockWrapper
+function SetClockWrapper() {
+  let date = new Date();
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  console.log(date.getSeconds());
+  let hourAngle = hours * 30 + minutes / 2 - 90;
+  let minuteAngle = 90 + minutes * 6;
+  let angles = [hourAngle, minuteAngle];
+  return angles;
+}
+let angles = SetClockWrapper();
+
+function getHourAngle() {
+  return angles[0];
+}
+
+function getMinuteAngle() {
+  return angles[1];
+}
+
 const ClockWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -76,28 +97,29 @@ const SecondHand = styled(MinuteHand)`
   animation: rotate 60s infinite steps(60);
 `;
 
-//Sets the ClockWrapper
-function SetClockWrapper() {
-  let date = new Date();
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
+const GoHomeLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  border: solid 1px transparent;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 20px 0;
+  :link {
+    text-decoration: none;
+  }
+  :hover {
+    border: solid 1px white;
+  }
+  @media (max-width: ${breakpoints.sm + "px"}) {
+    padding: 0;
+  }
+`;
 
-  let hourAngle = hours * 30 + minutes / 2 - 90;
-  let minuteAngle = 90 + minutes * 6;
-  let angles = [hourAngle, minuteAngle];
-  return angles;
-}
-function getHourAngle() {
-  let angles = SetClockWrapper();
-  return angles[0];
-}
-
-function getMinuteAngle() {
-  let angles = SetClockWrapper();
-  return angles[1];
-}
 const Clock: React.FC = () => (
-  <Link to="/">
+  <GoHomeLink to="/">
+    Go back
     <ClockWrapper>
       <Dot></Dot>
       <HourWrapper>
@@ -110,7 +132,8 @@ const Clock: React.FC = () => (
         <SecondHand>MICHAEL</SecondHand>
       </SecondWrapper>
     </ClockWrapper>
-  </Link>
+    (in time)
+  </GoHomeLink>
 );
 
 export default Clock;

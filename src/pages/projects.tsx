@@ -64,7 +64,6 @@ const PageTwo = () => (
       <PageTitle>
         <h1>Projects</h1>
       </PageTitle>
-
       <Container>
         <Project href="https://johannesloor.github.io/Sonic-Gesture-Challenge/">
           <h3>Sonic Gesture Challenge</h3>
