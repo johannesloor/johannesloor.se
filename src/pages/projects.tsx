@@ -58,63 +58,61 @@ const PageTitle = styled.div`
   background-color: ${colors.background};
 `;
 
-const PageTwo = () => (
+let projects = [
+  {
+    title: "Sonic Gesture Challenge",
+    image: sgc,
+    info: `Sonic Gesture Challenge is a sound and gesture mapping game
+  where the goal is to repeat a gesture after only hearing the
+  sound it produces. In this project I designed and built the
+  interface, helped with the sound-gesture comparison algorithm
+  and designed one of the sounds used. This was a really fun project focusing on how to make sound
+  designs for the web, using WebAudioXML by Hans Lindetorp, and
+  exploring if it is feasible to use this framework for these
+  kinds of ear-training apps.`,
+    url: "https://johannesloor.github.io/Sonic-Gesture-Challenge/",
+  },
+  {
+    image: ol,
+    title: "Osqledaren.se",
+    info: `Osqledaren is the student union newspaper at KTH. For the
+  semester of 2019/2020 I was responsible for the website and lead
+  a team of eight, building a completely new website. The new
+  website is built using React and Gatsby with the cms on Sanity.`,
+    url: "https://osqledaren.se",
+  },
+  {
+    image: brushi,
+    title: "Brushi",
+    info: `Description Description Description Description Description
+  Description Description Description Description Description
+  Description Description`,
+  },
+];
+
+const Projects = () => (
   <IndexLayout>
     <Page>
       <PageTitle>
         <h1>Projects</h1>
       </PageTitle>
+
       <Container>
-        <Project href="https://johannesloor.github.io/Sonic-Gesture-Challenge/">
-          <h3>Sonic Gesture Challenge</h3>
-          <Description>
-            <DescriptionText>
-              <p>
-                Sonic Gesture Challenge is a sound and gesture mapping game
-                where the goal is to repeat a gesture after only hearing the
-                sound it produces. In this project I designed and built the
-                interface, helped with the sound-gesture comparison algorithm
-                and designed one of the sounds used.
-              </p>
-              <p>
-                This was a really fun project focusing on how to make sound
-                designs for the web, using WebAudioXML by Hans Lindetorp, and
-                exploring if it is feasible to use this framework for these
-                kinds of ear-training apps.
-              </p>
-            </DescriptionText>
-            <DescriptionImage src={sgc}></DescriptionImage>
-          </Description>
-        </Project>
-        <Project href="https://osqledaren.se">
-          <h3>Osqledaren.se</h3>
-          <Description>
-            <DescriptionText>
-              <p>
-                Osqledaren is the student union newspaper at KTH. For the
-                semester of 2019/2020 I was responsible for the website and lead
-                a team of eight, building a completely new website. The new
-                website is built using React and Gatsby with the cms on Sanity.
-              </p>
-              <p></p>
-            </DescriptionText>
-            <DescriptionImage src={ol}></DescriptionImage>
-          </Description>
-        </Project>
-        <Project>
-          <h3>Brushi</h3>
-          <Description>
-            <DescriptionText>
-              Description Description Description Description Description
-              Description Description Description Description Description
-              Description Description
-            </DescriptionText>
-            <DescriptionImage src={brushi}></DescriptionImage>
-          </Description>
-        </Project>
+        {projects.map((project) => (
+          <Project href={project.url ? project.url : "#void"}>
+            <Description>
+              <DescriptionText>
+                <h3>{project.title}</h3>
+                {project.info}
+                <h4>What I did:</h4> bla
+              </DescriptionText>
+              <DescriptionImage src={project.image}></DescriptionImage>
+            </Description>
+          </Project>
+        ))}
       </Container>
     </Page>
   </IndexLayout>
 );
 
-export default PageTwo;
+export default Projects;
