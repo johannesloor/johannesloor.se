@@ -8,6 +8,7 @@ import IndexLayout from "../layouts";
 import brushi from "../images/Brushi_logo.png";
 import sgc from "../images/SGC.png";
 import ol from "../images/Osqledaren.png";
+import sgcpdf from "../pdfs/sgc.pdf";
 
 const Project = styled.div`
   display: flex;
@@ -42,8 +43,10 @@ const DescriptionText = styled.div`
 `;
 
 const ImageBtnContainer = styled.div`
-  align-self: center;
+  display: flex;
+  flex-direction: column;
   width: 40%;
+  justify-content: space-evenly;
   @media (max-width: ${breakpoints.sm + "px"}) {
     width: 100%;
   }
@@ -83,6 +86,7 @@ let projects = [
   {
     title: "Sonic Gesture Challenge",
     image: sgc,
+
     info: `Sonic Gesture Challenge is a sound and gesture mapping game
   where the goal is to repeat a gesture after only hearing the
   sound it produces. In this project I designed and built the
@@ -91,13 +95,18 @@ let projects = [
   designs for the web, using WebAudioXML by Hans Lindetorp, and
   exploring if it is feasible to use this framework for these
   kinds of ear-training apps.`,
+    contributions: [
+      "🎨 Designed and built the interface",
+      "👨‍💻 Worked on the comparing algorythm",
+      "🎵 Designed one of the 7 sounds",
+    ],
     externals: [
       {
         url: "https://johannesloor.github.io/Sonic-Gesture-Challenge/",
         text: "Check out project",
       },
       {
-        url: "",
+        url: sgcpdf,
         text: "Read report",
       },
     ],
@@ -109,6 +118,7 @@ let projects = [
   semester of 2019/2020 I was responsible for the website and lead
   a team of eight, building a completely new website. The new
   website is built using React and Gatsby with a custom cms on Sanity.`,
+    contributions: [``],
     externals: [{ url: "https://osqledaren.se", text: "Check out project" }],
   },
   {
@@ -117,6 +127,7 @@ let projects = [
     info: `Description Description Description Description Description
   Description Description Description Description Description
   Description Description`,
+    contributions: [``],
     externals: [{ url: "https://osqledaren.se", text: "Watch video" }],
   },
 ];
@@ -132,7 +143,10 @@ const Projects = () => (
               <DescriptionText>
                 <h3>{project.title}</h3>
                 {project.info}
-                <h4>What I did:</h4> bla
+                <h4>What I did:</h4>
+                {project.contributions.map((contribution) => (
+                  <p>{contribution}</p>
+                ))}
               </DescriptionText>
               <ImageBtnContainer>
                 <img src={project.image} />
