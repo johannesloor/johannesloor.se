@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import { breakpoints, colors } from "../styles/variables";
 import Page from "../components/Page";
 import Container from "../components/Container";
-import Card from "../components/Card";
 import IndexLayout from "../layouts";
 
 import brushi from "../images/Brushi_logo.png";
