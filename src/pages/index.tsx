@@ -49,13 +49,6 @@ const VaryingWord = styled.div`
   }
 `;
 
-const ButtonText = styled.div`
-  padding: 2rem;
-  @media (max-width: ${breakpoints.xs + "px"}) {
-    padding: 2rem;
-  }
-`;
-
 const PictureWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -92,12 +85,8 @@ const IndexPage = () => (
         </Title>
 
         <CardWrapper>
-          <Card url="/projects">
-            <ButtonText>Projects</ButtonText>
-          </Card>
-          <Card url="/">
-            <ButtonText>About me</ButtonText>
-          </Card>
+          <Card url="/projects">Projects</Card>
+          <Card url="/">About me</Card>
         </CardWrapper>
       </Container>
     </Page>

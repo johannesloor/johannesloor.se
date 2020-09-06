@@ -28,12 +28,18 @@ const CardLink = styled(Link)`
   }
 `;
 
+const ButtonText = styled.div`
+  padding: 2rem;
+`;
+
 interface CardProps {
   url?: string;
 }
 
 const Card: React.FC<CardProps> = ({ children, url }) => (
-  <CardLink to={url ? url : "/"}>{children}</CardLink>
+  <CardLink to={url ? url : "/"}>
+    <ButtonText>{children}</ButtonText>
+  </CardLink>
 );
 
 export default Card;
