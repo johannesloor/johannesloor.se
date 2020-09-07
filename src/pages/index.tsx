@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import Page from "../components/Page";
-import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
 import meCap from "../images/meCap.jpg";
