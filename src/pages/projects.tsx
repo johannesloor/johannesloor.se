@@ -146,7 +146,7 @@ const Projects = () => (
                 <p>{project.info}</p>
                 <h4>What I did:</h4>
                 {project.contributions.map((contribution) => (
-                  <p>{contribution}</p>
+                  <p key={contribution}>{contribution}</p>
                 ))}
               </DescriptionText>
               <ImageBtnContainer>

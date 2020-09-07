@@ -29,7 +29,7 @@ const CardLink = styled(Link)`
 `;
 
 const ButtonText = styled.div`
-  padding: 2rem;
+  padding: 1.5rem 2rem;
 `;
 
 interface CardProps {

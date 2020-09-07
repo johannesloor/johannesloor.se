@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-
+import { keyframes } from "@emotion/core";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
@@ -37,16 +37,19 @@ const Title = styled.h1`
     font-size: 20pt;
   }
 `;
-
-const VaryingWord = styled.div`
-  display: inline;
-  position: relative;
-  top: 0;
-  transition: top ease 0.5s;
-  &:hover {
+const bounce = keyframes`
+  70% {
     color: red;
-    top: -10px;
   }
+`;
+
+const VaryingWord = styled.span`
+  display: inline;
+  animation: ${bounce} 8s ease infinite;
+`;
+
+const HiddenWord = styled(VaryingWord)`
+  color: transparent;
 `;
 
 const PictureWrapper = styled.div`
@@ -65,10 +68,21 @@ const ProfilePic = styled.img`
   }
 `;
 
-let interests = ["Apple", "music", "smart home", "golf"];
+let interests = [" Apple ", " music ", " smart home ", " golf "];
+let i = 0;
 let wordCount = Math.floor(Math.random() * Math.floor(interests.length));
 let randomWord = interests[wordCount];
 
+function getWord() {
+  let word = interests[i];
+  i += 1;
+  if (i > interests.length - 1) {
+    i = 0;
+  }
+  console.log(word);
+  return word;
+}
+setInterval(getWord, 8000);
 const IndexPage = () => (
   <IndexLayout>
     <Page>
@@ -80,7 +94,7 @@ const IndexPage = () => (
       </PictureWrapper>
       <Container>
         <Title>
-          Developer, engineer and <VaryingWord>{randomWord}</VaryingWord>{" "}
+          Developer, engineer and <VaryingWord>{randomWord}</VaryingWord>
           enthusiast
         </Title>
 

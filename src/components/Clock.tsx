@@ -119,6 +119,7 @@ const GoHomeLink = styled(Link)`
 
 const BackIcon = styled.div`
   font-size: 30pt;
+  color: white;
 `;
 
 const Clock: React.FC = () => (
