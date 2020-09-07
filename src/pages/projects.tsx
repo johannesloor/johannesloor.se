@@ -14,12 +14,9 @@ const Project = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
-  padding: 1rem;
-  border-radius: 10px;
-  background-color: #f0f8ff /*#f5f5f5*/;
-  :hover {
-    text-decoration: none;
-  }
+  padding: 0 1rem;
+  border-radius: 10px 0;
+  background-color: #f0f8ff;
 
   color: black;
   @media (max-width: ${breakpoints.sm + "px"}) {
@@ -36,7 +33,7 @@ const Description = styled.div`
 `;
 
 const DescriptionText = styled.div`
-  width: 55%;
+  width: 50%;
   @media (max-width: ${breakpoints.sm + "px"}) {
     width: 100%;
   }
@@ -45,22 +42,25 @@ const DescriptionText = styled.div`
 const ImageBtnContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 45%;
   justify-content: space-evenly;
   @media (max-width: ${breakpoints.sm + "px"}) {
     width: 100%;
+    margin-bottom: 1rem;
   }
 `;
+
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
   width: 100%;
   justify-content: space-evenly;
+  margin: 0.5rem 0;
 `;
 
 const Button = styled.a`
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 0.5rem;
   background-color: ${colors.background};
   border-radius: 25px;
@@ -89,9 +89,7 @@ let projects = [
     year: "2020",
     info: `Sonic Gesture Challenge is a sound and gesture mapping game
   where the goal is to repeat a gesture after only hearing the
-  sound it produces. In this project I designed and built the
-  interface, helped with the sound-gesture comparison algorithm
-  and designed one of the sounds used. This was a really fun project focusing on how to make sound
+  sound it produces. This was a really fun project focusing on how to make sound
   designs for the web, using WebAudioXML by Hans Lindetorp, and
   exploring if it is feasible to use this framework for these
   kinds of ear-training apps.`,
@@ -120,7 +118,7 @@ let projects = [
   a team of eight, building a completely new website. The new
   website is built using React and Gatsby with a custom cms on Sanity.`,
     contributions: [``],
-    externals: [{ url: "https://osqledaren.se", text: "Check out project" }],
+    externals: [{ url: "https://osqledaren.se", text: "Go to Osqledaren" }],
   },
   {
     image: brushi,
@@ -141,11 +139,11 @@ const Projects = () => (
       <Container>
         {projects.map((project) => (
           <Project key={project.title}>
+            <h3>{project.title}</h3>
+            <p>{project.year}</p>
             <Description>
               <DescriptionText>
-                <h3>{project.title}</h3>
-                <p>{project.year}</p>
-                {project.info}
+                <p>{project.info}</p>
                 <h4>What I did:</h4>
                 {project.contributions.map((contribution) => (
                   <p>{contribution}</p>
