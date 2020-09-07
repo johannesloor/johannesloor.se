@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
@@ -15,7 +14,7 @@ import { breakpoints } from "../styles/variables";
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 60%;
   margin-top: 2rem;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
@@ -37,15 +36,10 @@ const Title = styled.h1`
     font-size: 20pt;
   }
 `;
-const bounce = keyframes`
-  40% {
-    color: red;
-  }
-`;
 
 const VaryingWord = styled.span`
   display: inline;
-  animation: ${bounce} 8s ease infinite;
+  color: red;
 `;
 
 const PictureWrapper = styled.div`
@@ -55,6 +49,7 @@ const PictureWrapper = styled.div`
   flex-wrap: wrap;
   width: 90vw;
 `;
+
 const ProfilePic = styled.img`
   width: 15%;
   height: 100%;
@@ -74,18 +69,39 @@ function getWord() {
   }
   return word;
 }
+
 let wordErased = false;
 export default class IndexPage extends React.Component {
+  _isMounted = false;
   state = {
     changingWord: getWord(),
     nextWord: getWord(),
     wordBuilderIndex: 0,
     intervalID: 1,
+    timerID: 1,
   };
 
   componentDidMount() {
-    let intervalID = setInterval(() => this.handleWordChange(), 200);
+    this._isMounted = true;
+    this.startInterval();
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+    clearInterval(this.state.intervalID);
+    clearTimeout(this.state.timerID);
+  }
+
+  setIntervalState() {
+    let intervalID = setInterval(() => this.handleWordChange(), 150);
     this.setState({ intervalID: intervalID });
+  }
+
+  startInterval() {
+    clearInterval(this.state.intervalID);
+    clearTimeout(this.state.timerID);
+    let timerID = setTimeout(() => this.setIntervalState(), 1500);
+    this.setState({ timerID: timerID });
   }
 
   handleWordChange() {
@@ -110,6 +126,7 @@ export default class IndexPage extends React.Component {
         wordBuilderIndex: 0,
       });
       wordErased = false;
+      this.startInterval();
     }
   }
 
@@ -123,17 +140,14 @@ export default class IndexPage extends React.Component {
             <ProfilePic src={meBirthday}></ProfilePic>
             <ProfilePic src={meSwim}></ProfilePic>
           </PictureWrapper>
-          <Container>
-            <Title>
-              Developer, engineer and{" "}
-              <VaryingWord>{this.state.changingWord}</VaryingWord> enthusiast
-            </Title>
-
-            <CardWrapper>
-              <Card url="/projects">Projects</Card>
-              <Card url="/">About me</Card>
-            </CardWrapper>
-          </Container>
+          <Title>
+            Developer, engineer and{" "}
+            <VaryingWord>{this.state.changingWord}</VaryingWord> enthusiast
+          </Title>
+          <CardWrapper>
+            <Card url="/projects">Projects</Card>
+            <Card url="/">About me</Card>
+          </CardWrapper>
         </Page>
       </IndexLayout>
     );
