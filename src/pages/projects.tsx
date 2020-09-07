@@ -86,7 +86,7 @@ let projects = [
   {
     title: "Sonic Gesture Challenge",
     image: sgc,
-
+    year: "2020",
     info: `Sonic Gesture Challenge is a sound and gesture mapping game
   where the goal is to repeat a gesture after only hearing the
   sound it produces. In this project I designed and built the
@@ -114,6 +114,7 @@ let projects = [
   {
     image: ol,
     title: "Osqledaren.se",
+    year: "2019/2020",
     info: `Osqledaren is the student union newspaper at KTH. For the
   semester of 2019/2020 I was responsible for the website and lead
   a team of eight, building a completely new website. The new
@@ -124,6 +125,7 @@ let projects = [
   {
     image: brushi,
     title: "Brushi",
+    year: "2019",
     info: `Description Description Description Description Description
   Description Description Description Description Description
   Description Description`,
@@ -142,6 +144,7 @@ const Projects = () => (
             <Description>
               <DescriptionText>
                 <h3>{project.title}</h3>
+                <p>{project.year}</p>
                 {project.info}
                 <h4>What I did:</h4>
                 {project.contributions.map((contribution) => (
