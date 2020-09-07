@@ -20,7 +20,7 @@ const CardLink = styled(Link)`
     margin-bottom: 2rem;
   }
   &:hover {
-    border-color: #fff7f0;
+    border-color: white;
     text-decoration: none;
   }
   &:focus {
