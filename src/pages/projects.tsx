@@ -14,7 +14,7 @@ const Project = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px 0;
   background-color: #f0f8ff;
 
@@ -28,11 +28,14 @@ const Description = styled.div`
   display: flex;
   justify-content: space-between;
   @media (max-width: ${breakpoints.sm + "px"}) {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 `;
 
 const DescriptionText = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 50%;
   @media (max-width: ${breakpoints.sm + "px"}) {
     width: 100%;
@@ -43,7 +46,6 @@ const ImageBtnContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 45%;
-  justify-content: space-evenly;
   @media (max-width: ${breakpoints.sm + "px"}) {
     width: 100%;
     margin-bottom: 1rem;
@@ -95,8 +97,8 @@ let projects = [
   kinds of ear-training apps.`,
     contributions: [
       "🎨 Designed and built the interface",
-      "👨‍💻 Worked on the comparing algorythm",
-      "🎵 Designed one of the 7 sounds",
+      "👨‍💻 Co-built the comparing algorythm",
+      "🎵 Designed one of the seven sounds",
     ],
     externals: [
       {
@@ -135,21 +137,13 @@ const Projects = () => (
   <IndexLayout>
     <Page>
       <PageTitle>Projects</PageTitle>
-
       <Container>
         {projects.map((project) => (
           <Project key={project.title}>
-            <h3>{project.title}</h3>
-            <p>{project.year}</p>
             <Description>
-              <DescriptionText>
-                <p>{project.info}</p>
-                <h4>What I did:</h4>
-                {project.contributions.map((contribution) => (
-                  <p key={contribution}>{contribution}</p>
-                ))}
-              </DescriptionText>
               <ImageBtnContainer>
+                <h3>{project.title}</h3>
+                <p>{project.year}</p>
                 <img src={project.image} />
                 <ButtonWrapper>
                   {project.externals.map((external) => (
@@ -164,6 +158,13 @@ const Projects = () => (
                   ))}
                 </ButtonWrapper>
               </ImageBtnContainer>
+              <DescriptionText>
+                <p>{project.info}</p>
+                <h4>What I did:</h4>
+                {project.contributions.map((contribution) => (
+                  <p key={contribution}>{contribution}</p>
+                ))}
+              </DescriptionText>
             </Description>
           </Project>
         ))}
