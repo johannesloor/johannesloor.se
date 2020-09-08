@@ -58,7 +58,7 @@ const ProfilePic = styled.img`
   }
 `;
 
-let interests = ["Apple", "music", "smart home", "golf"];
+let interests = ["Apple", "music", "smart home", "golf", "cat"];
 let i = 0;
 function getWord() {
   let word = interests[i];
