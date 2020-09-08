@@ -28,7 +28,7 @@ const CardWrapper = styled.div`
 const Title = styled.h1`
   display: block;
   width: 100%;
-  padding-top: 1rem;
+  margin-top: 1rem;
   text-align: center;
   font-style: italic;
   @media (max-width: ${breakpoints.sm + "px"}) {
@@ -69,9 +69,8 @@ function getWord() {
   return word;
 }
 
-let wordErased = false;
 export default class IndexPage extends React.Component {
-  _isMounted = false;
+  wordErased = false;
   state = {
     changingWord: getWord(),
     nextWord: getWord(),
@@ -81,12 +80,10 @@ export default class IndexPage extends React.Component {
   };
 
   componentDidMount() {
-    this._isMounted = true;
     this.startInterval();
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
     clearInterval(this.state.intervalID);
     clearTimeout(this.state.timerID);
   }
@@ -105,14 +102,14 @@ export default class IndexPage extends React.Component {
 
   handleWordChange() {
     if (!this.state.changingWord) {
-      wordErased = true;
+      this.wordErased = true;
     }
 
-    if (!wordErased) {
+    if (!this.wordErased) {
       this.setState({
         changingWord: this.state.changingWord.slice(0, -1),
       });
-    } else if (wordErased && this.state.changingWord != this.state.nextWord) {
+    } else if (this.state.changingWord != this.state.nextWord) {
       this.setState({
         changingWord:
           this.state.changingWord +
@@ -124,7 +121,7 @@ export default class IndexPage extends React.Component {
         nextWord: getWord(),
         wordBuilderIndex: 0,
       });
-      wordErased = false;
+      this.wordErased = false;
       this.startInterval();
     }
   }
