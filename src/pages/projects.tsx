@@ -71,6 +71,10 @@ const Button = styled.a`
   }
 `;
 
+const Image = styled.img`
+  max-height: 300px;
+`;
+
 const PageTitle = styled.h1`
   width: 100vw;
   text-align: center;
@@ -91,7 +95,7 @@ const Projects = () => (
               <ImageBtnContainer>
                 <h3>{project.title}</h3>
                 <p>{project.year}</p>
-                <img src={project.image} />
+                <Image src={project.image}></Image>
                 <ButtonWrapper>
                   {project.externals.map((external) => (
                     <Button
