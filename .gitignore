@@ -1,2 +1,4 @@
 node_modules
 .DS_Store
+.cache/redux/redux.node.state_0
+.cache/redux/redux.rest.state
