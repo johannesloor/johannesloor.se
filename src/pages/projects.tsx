@@ -31,7 +31,6 @@ const Description = styled.div`
 const DescriptionText = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 50%;
   @media (max-width: ${breakpoints.sm + "px"}) {
     width: 100%;
@@ -75,6 +74,11 @@ const Image = styled.img`
   max-height: 300px;
 `;
 
+const Video = styled.video`
+  width: 100%;
+  background: black;
+`;
+
 const PageTitle = styled.h1`
   width: 100vw;
   text-align: center;
@@ -95,26 +99,43 @@ const Projects = () => (
               <ImageBtnContainer>
                 <h3>{project.title}</h3>
                 <p>{project.year}</p>
-                <Image src={project.image}></Image>
-                <ButtonWrapper>
-                  {project.externals.map((external) => (
-                    <Button
-                      key={external.url}
-                      href={external.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {external.text}
-                    </Button>
-                  ))}
-                </ButtonWrapper>
+                {project.video ? (
+                  <Video controls>
+                    {" "}
+                    <source src={project.video} type="video/mp4" />
+                    Your browser does not support this video format.
+                  </Video>
+                ) : (
+                  <Image src={project.image}></Image>
+                )}
               </ImageBtnContainer>
               <DescriptionText>
-                <p>{project.info}</p>
-                <h4>What I did:</h4>
-                {project.contributions.map((contribution) => (
-                  <p key={contribution}>{contribution}</p>
-                ))}
+                <div>
+                  <h4>Info</h4>
+                  {project.info}
+                </div>
+                <div>
+                  <h4>What I did</h4>
+                  {project.contributions.map((contribution) => (
+                    <p key={contribution}>{contribution}</p>
+                  ))}
+                </div>
+                {project.externals ? (
+                  <ButtonWrapper>
+                    {project.externals.map((external) => (
+                      <Button
+                        key={external.url}
+                        href={external.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {external.text}
+                      </Button>
+                    ))}
+                  </ButtonWrapper>
+                ) : (
+                  ""
+                )}
               </DescriptionText>
             </Description>
           </Project>

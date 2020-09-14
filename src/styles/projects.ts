@@ -1,10 +1,20 @@
-import brushi from "../images/Brushi_logo.png";
-import sgc from "../images/SGC.png";
 import ol from "../images/Osqledaren.png";
+import sgc from "../images/sgc.png";
 import ipadWebsite from "../images/ipadWebsite.png";
 import ofr from "../images/ofr.png";
+import thesis from "../images/thesis.png";
+import pepper from "../images/pepperposter.png";
+import challengeMe from "../images/challengeMe.png";
+import evacuateMe from "../images/evacuateMe.png";
+
+import soundCanvas from "../videos/SoundCanvas.mp4";
+import brushi from "../videos/Brushi.mp4";
+import openRiks from "../videos/OpenRiksdag.mp4";
+import synthEye from "../videos/Syntheseyeser.mp4";
 
 import sgcpdf from "../pdfs/sgc.pdf";
+import thesisSwedish from "../pdfs/thesisSwedish.pdf";
+import thesisEnglish from "../pdfs/thesisEnglish.pdf";
 
 export const projects = [
   {
@@ -12,7 +22,7 @@ export const projects = [
     title: "johannesloor.se (this website)",
     year: "2020",
     info: `To showcase projects and me as a person, I built this website using React and Gatsby. 
-    The concept around it, except being a portfolio, was to make something that seems ordinary but 
+    The concept around it, except acting as my portfolio, was to make something that seems ordinary but 
     when you hover and click on things, goofy things happen.`,
     contributions: [
       `⏰ A Johannes-Clock (Do you know my middle name?)`,
@@ -23,7 +33,7 @@ export const projects = [
     externals: [
       {
         url: "https://github.com/johannesloor/johannesloor.se",
-        text: "Github page",
+        text: "Go to Github page",
       },
     ],
   },
@@ -35,16 +45,16 @@ export const projects = [
       semester of 2019/2020 I was responsible for the website and lead
       a team of eight, building a completely new website. The new
       website is built using React and Gatsby with a custom cms on Sanity.`,
-    contributions: [``],
-    externals: [{ url: "https://osqledaren.se", text: "Go to Osqledaren" }],
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    externals: [{ url: "https://osqledaren.se", text: "Go to website" }],
   },
   {
     image: ofr,
-    title: "The website of Östermalms Föreningsråd",
+    title: "Östermalms Föreningsråd",
     year: "2020",
     info: `Östermalms Föreningsråd is a conference facility of which I have been the IT- and 
     technical support person at for the last couple of years. My main responsibility has been 
-    the website, which is Wordpress-driven and serves as place where customers 
+    managing the website, which is Wordpress-driven and serves as place where customers 
     can explore the rooms available before booking.`,
     contributions: [
       `🎨 Updated the webpage design`,
@@ -54,15 +64,14 @@ export const projects = [
     externals: [{ url: "http://www.lokomalm.se", text: "Go to website" }],
   },
   {
-    image: "",
+    video: soundCanvas,
     title: "Sound Canvas",
     year: "2020",
     info: `Description Description Description Description Description
       Description Description Description Description Description
       Description Description`,
-    contributions: [``],
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
     externals: [
-      { url: "https://osqledaren.se", text: "Watch video" },
       {
         url: sgcpdf,
         text: "Read report",
@@ -87,7 +96,7 @@ export const projects = [
     externals: [
       {
         url: "https://johannesloor.github.io/Sonic-Gesture-Challenge/",
-        text: "Check out project",
+        text: "Go to website",
       },
       {
         url: sgcpdf,
@@ -95,17 +104,30 @@ export const projects = [
       },
     ],
   },
-
   {
-    image: brushi,
+    video: openRiks,
+    title: "Open Riksdag",
+    year: "2020",
+    info: `Description Description Description Description Description
+      Description Description Description Description Description
+      Description Description`,
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    externals: [
+      {
+        url: sgcpdf,
+        text: "Read report",
+      },
+    ],
+  },
+  {
+    video: brushi,
     title: "Brushi",
     year: "2019",
     info: `Description Description Description Description Description
       Description Description Description Description Description
       Description Description`,
-    contributions: [``],
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
     externals: [
-      { url: "https://osqledaren.se", text: "Watch video" },
       {
         url: sgcpdf,
         text: "Read report",
@@ -113,15 +135,23 @@ export const projects = [
     ],
   },
   {
-    image: "",
+    image: pepper,
+    title: "The natural language of robots",
+    year: "2019",
+    info: `Description Description Description Description Description
+      Description Description Description Description Description
+      Description Description`,
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+  },
+  {
+    video: synthEye,
     title: "SynthesEyeser",
     year: "2019",
     info: `Description Description Description Description Description
       Description Description Description Description Description
       Description Description`,
-    contributions: [``],
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
     externals: [
-      { url: "https://osqledaren.se", text: "Watch video" },
       {
         url: sgcpdf,
         text: "Read report",
@@ -129,23 +159,41 @@ export const projects = [
     ],
   },
   {
-    image: "",
-    title: "Evacuate Me",
+    image: thesis,
+    title: "Bass as an indicator of quality - Bachelor thesis",
     year: "2019",
     info: `Description Description Description Description Description
       Description Description Description Description Description
       Description Description`,
-    contributions: [``],
-    externals: [{ url: "https://osqledaren.se", text: "Watch video" }],
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    externals: [
+      {
+        url: thesisSwedish,
+        text: "Read in Swedish",
+      },
+      {
+        url: thesisEnglish,
+        text: "Read in English",
+      },
+    ],
   },
+
   {
-    image: "",
+    image: challengeMe,
     title: "Challenge Me",
     year: "2019",
     info: `Description Description Description Description Description
       Description Description Description Description Description
       Description Description`,
-    contributions: [``],
-    externals: [{ url: "https://osqledaren.se", text: "Watch video" }],
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+  },
+  {
+    image: evacuateMe,
+    title: "Evacuate Me",
+    year: "2019",
+    info: `Description Description Description Description Description
+      Description Description Description Description Description
+      Description Description`,
+    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
   },
 ];
