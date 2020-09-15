@@ -75,7 +75,7 @@ const Image = styled.img`
 `;
 
 const Video = styled.iframe`
-  height: 50%;
+  height: 15rem;
   border: none;
 `;
 
@@ -103,7 +103,7 @@ const Projects = () => (
                 {project.vimeoId ? (
                   <Video
                     src={"https://player.vimeo.com/video/" + project.vimeoId}
-                    allow="autoplay; fullscreen"
+                    allow="fullscreen"
                     title={project.title}
                   />
                 ) : (
