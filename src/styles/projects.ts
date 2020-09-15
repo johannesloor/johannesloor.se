@@ -7,11 +7,6 @@ import pepper from "../images/pepperposter.png";
 import challengeMe from "../images/challengeMe.png";
 import evacuateMe from "../images/evacuateMe.png";
 
-import soundCanvas from "../videos/SoundCanvas.mp4";
-import brushi from "../videos/Brushi.mp4";
-import openRiks from "../videos/OpenRiksdag.mp4";
-import synthEye from "../videos/Syntheseyeser.mp4";
-
 import sgcpdf from "../pdfs/sgc.pdf";
 import thesisSwedish from "../pdfs/thesisSwedish.pdf";
 import thesisEnglish from "../pdfs/thesisEnglish.pdf";
@@ -64,8 +59,8 @@ export const projects = [
     externals: [{ url: "http://www.lokomalm.se", text: "Go to website" }],
   },
   {
-    video: soundCanvas,
     title: "Sound Canvas",
+    vimeoId: "458073967",
     year: "2020",
     info: `Description Description Description Description Description
       Description Description Description Description Description
@@ -105,7 +100,7 @@ export const projects = [
     ],
   },
   {
-    video: openRiks,
+    vimeoId: "458073950",
     title: "Open Riksdag",
     year: "2020",
     info: `Description Description Description Description Description
@@ -120,7 +115,7 @@ export const projects = [
     ],
   },
   {
-    video: brushi,
+    vimeoId: "458073896",
     title: "Brushi",
     year: "2019",
     info: `Description Description Description Description Description
@@ -144,7 +139,7 @@ export const projects = [
     contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
   },
   {
-    video: synthEye,
+    vimeoId: "458074093",
     title: "SynthesEyeser",
     year: "2019",
     info: `Description Description Description Description Description

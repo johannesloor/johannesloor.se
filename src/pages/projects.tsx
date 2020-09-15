@@ -74,9 +74,9 @@ const Image = styled.img`
   max-height: 300px;
 `;
 
-const Video = styled.video`
-  width: 100%;
-  background: black;
+const Video = styled.iframe`
+  height: 50%;
+  border: none;
 `;
 
 const PageTitle = styled.h1`
@@ -92,6 +92,7 @@ const Projects = () => (
   <IndexLayout>
     <Page>
       <PageTitle>Projects</PageTitle>
+
       <Container>
         {projects.map((project) => (
           <Project key={project.title}>
@@ -99,12 +100,12 @@ const Projects = () => (
               <ImageBtnContainer>
                 <h3>{project.title}</h3>
                 <p>{project.year}</p>
-                {project.video ? (
-                  <Video controls>
-                    {" "}
-                    <source src={project.video} type="video/mp4" />
-                    Your browser does not support this video format.
-                  </Video>
+                {project.vimeoId ? (
+                  <Video
+                    src={"https://player.vimeo.com/video/" + project.vimeoId}
+                    allow="autoplay; fullscreen"
+                    title={project.title}
+                  />
                 ) : (
                   <Image src={project.image}></Image>
                 )}
