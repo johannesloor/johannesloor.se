@@ -1,6 +1,6 @@
 import ol from "../images/Osqledaren.png";
 import sgc from "../images/sgc.png";
-import ipadWebsite from "../images/ipadWebsite.png";
+import ipadWebsite from "../images/myWebsite.png";
 import ofr from "../images/ofr.png";
 import thesis from "../images/thesis.png";
 import pepper from "../images/pepperposter.png";
