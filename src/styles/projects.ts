@@ -14,9 +14,9 @@ import thesisEnglish from "../pdfs/thesisEnglish.pdf";
 export const projects = [
   {
     image: ipadWebsite,
-    title: "johannesloor.se (this website)",
+    title: "johannesloor.se (this very website)",
     year: "2020",
-    info: `To showcase projects and me as a person, I built this website using React and Gatsby. 
+    info: `To showcase my projects and me as a person, I built this website using React and Gatsby. 
     The concept around it, except acting as my portfolio, was to make something that seems ordinary but 
     when you hover and click on things, goofy things happen.`,
     contributions: [
@@ -38,9 +38,13 @@ export const projects = [
     year: "2019/2020",
     info: `Osqledaren is the student union newspaper at KTH. For the
       semester of 2019/2020 I was responsible for the website and lead
-      a team of eight, building a completely new website. The new
+      a team of eight people in building a completely new website. The new
       website is built using React and Gatsby with a custom cms on Sanity.`,
-    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    contributions: [
+      `🗓 Planned and supervised the project`,
+      `✂️ Organized brainstorms and team buildings`,
+      "👨‍💻 Co-built the website",
+    ],
     externals: [{ url: "https://osqledaren.se", text: "Go to website" }],
   },
   {
