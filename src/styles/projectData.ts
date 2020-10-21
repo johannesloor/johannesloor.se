@@ -11,7 +11,7 @@ import sgcpdf from "../pdfs/sgc.pdf";
 import thesisSwedish from "../pdfs/thesisSwedish.pdf";
 import thesisEnglish from "../pdfs/thesisEnglish.pdf";
 
-export const projects = [
+export const projectData = [
   {
     image: ipadWebsite,
     title: "johannesloor.se (this very website)",

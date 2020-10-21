@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { breakpoints, colors } from "../styles/variables";
-import { projects } from "../styles/projects";
+import { projectData } from "../styles/projectData";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
@@ -94,7 +94,7 @@ const Projects = () => (
       <PageTitle>Projects</PageTitle>
 
       <Container>
-        {projects.map((project) => (
+        {projectData.map((project) => (
           <Project key={project.title}>
             <Description>
               <ImageBtnContainer>
