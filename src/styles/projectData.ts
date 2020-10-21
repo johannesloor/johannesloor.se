@@ -50,7 +50,7 @@ export const projectData = [
   {
     image: ofr,
     title: "Östermalms Föreningsråd",
-    year: "2020",
+    year: "2016 - Now",
     info: `Östermalms Föreningsråd is a conference facility of which I have been the IT- and 
     technical support person at for the last couple of years. My main responsibility has been 
     managing the website, which is Wordpress-driven and serves as place where customers 
@@ -66,10 +66,12 @@ export const projectData = [
     title: "Sound Canvas",
     vimeoId: "458073967",
     year: "2020",
-    info: `Description Description Description Description Description
-      Description Description Description Description Description
-      Description Description`,
-    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    info: `Sound Canvas is an art installation that knows where on the blank canvas the user is looking. 
+    It then plays different sounds, matching various environments, 
+    so the user feels as if they are walking within the painting, just by looking around. 
+    This was done by mapping sounds to points on a computer screen, using Pure-data, 
+    which was then controlled by a Tobii eye-tracker.`,
+    contributions: [`💭 Conceptualised the idea`, `👨‍💻 Explored Pure-Data`, `🖼 Designed the sonic layout of the canvas`],
     externals: [
       {
         url: sgcpdf,
