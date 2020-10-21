@@ -109,15 +109,15 @@ export const projectData = [
     vimeoId: "458073950",
     title: "Open Riksdag",
     year: "2020",
-    info: `Description Description Description Description Description
-      Description Description Description Description Description
-      Description Description`,
-    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    info: `As a project in a course about information visualization, 
+    the Open Riksdag website was built to visualize the flow of motions and 
+    proposals in the Swedish parliamentary system. 
+    A fun project in which I not only learned about visualization techniques 
+    but also a fair amount about the Swedish parliamentary system. `,
+    contributions: [`💻 Front-end development`, `🌊 Co-designed the visual flow of data`, `📽 Open Riksdag - The movie`],
     externals: [
-      {
-        url: sgcpdf,
-        text: "Read report",
-      },
+      
+      
     ],
   },
   {
