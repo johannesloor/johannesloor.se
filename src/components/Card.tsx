@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { breakpoints } from "../styles/variables";
+import { breakpoints, colors } from "../styles/variables";
 import { Link } from "gatsby";
 
 const CardLink = styled(Link)`
@@ -10,7 +10,7 @@ const CardLink = styled(Link)`
   margin: 1rem;
   font-size: 21pt;
   text-align: center;
-  background-color: #f0f8ff;
+  background-color: ${colors.brand};
   border-radius: 25px;
   border: 3px solid transparent;
   @media (max-width: ${breakpoints.sm + "px"}) {
