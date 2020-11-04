@@ -145,7 +145,7 @@ export default class IndexPage extends React.Component {
           </Title>
           <CardWrapper>
             <Card url="/projects">Projects</Card>
-            <Card url="/">About me</Card>
+            <Card url="/about">About me</Card>
           </CardWrapper>
         </Page>
       </IndexLayout>

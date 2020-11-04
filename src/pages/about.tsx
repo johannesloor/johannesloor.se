@@ -5,15 +5,15 @@ import IndexLayout from "../layouts";
 import PageTitle from "../components/PageTitle";
 import Container from "../components/Container";
 
-const NotFoundPage = () => (
+const About = () => (
   <IndexLayout>
     <Page>
-      <PageTitle>404: Page not found.</PageTitle>
+      <PageTitle>About me</PageTitle>
       <Container>
-        <h3>Well this is awkward... Better click the clock.</h3>
+        <h3>Coming soon</h3>
       </Container>
     </Page>
   </IndexLayout>
 );
 
-export default NotFoundPage;
+export default About;
