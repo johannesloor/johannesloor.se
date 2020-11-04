@@ -5,11 +5,14 @@ import { projectData } from "../styles/projectData";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
+import { widths } from "../styles/variables";
+import { getEmSize } from "../styles/mixins";
 
 const Project = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
+  max-width: ${getEmSize(widths.lg)}em;
+  margin: 2rem;
   padding: 0.5rem 1rem;
   border-radius: 10px 0;
   background-color: #f0f8ff;
@@ -17,6 +20,7 @@ const Project = styled.div`
   color: black;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
+    margin: 2rem 0;
   }
 `;
 

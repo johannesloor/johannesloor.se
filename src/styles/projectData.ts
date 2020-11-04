@@ -10,6 +10,7 @@ import evacuateMe from "../images/evacuateMe.png";
 import sgcpdf from "../pdfs/sgc.pdf";
 import thesisSwedish from "../pdfs/thesisSwedish.pdf";
 import thesisEnglish from "../pdfs/thesisEnglish.pdf";
+import pepperpdf from "../pdfs/pepperreport.pdf";
 
 export const projectData = [
   {
@@ -106,6 +107,25 @@ export const projectData = [
     ],
   },
   {
+    title: "SoleMate",
+    vimeoId: "475384468",
+    year: "2020",
+    info: `SoleMate is an explorative design project striving to achieve the ambient feeling of 
+    copresence between people without the need of physical presence. 
+    Two pairs of shoe soles are equipped with pressure sensors and vibration motors and are connected 
+    through the internet, using Arduinos. A step taken with one pair of the soles results in haptic feedback in the other, 
+    and vice versa.`,
+    contributions: [
+      "👨‍💻 Programmed the Arduinos",
+      "👠 Co-designed the experience", 
+      "🔨 Explored the world of physical interaction design",
+    ],
+    externals: [{
+      url: sgcpdf,
+      text: "Read report",
+    },],
+  },
+  {
     vimeoId: "458073950",
     title: "Open Riksdag",
     year: "2020",
@@ -145,6 +165,12 @@ export const projectData = [
     Pepper was programmed to react to a story told by user test participants with either gestures and sounds or solely with gestures. 
     This was done to see if and how the users perception of the robot changed depending on auditory feedback. `,
     contributions: [`🤖 Helped program Pepper the robot`, `📝 Co-designed user tests`, `👨‍🏫 Lead user testing`],
+    externals: [
+      {
+        url: pepperpdf,
+        text: "Read report",
+      },
+    ],
   },
   {
     vimeoId: "458074093",
@@ -166,9 +192,9 @@ export const projectData = [
     title: "Bass as an indicator of quality - Bachelor thesis",
     year: "2019",
     info: `As our bachelor thesis, me and Martin Linder Nilsson explored what effect 
-    the amount of bass in headphones had on the perception of quality. This was done by fooling users
-    that they tried different pairs of headphones when infact they used the same pair every time, 
-    whith instead the bass levels of the track played changing. The results point towards participants 
+    the amount of bass in headphones had on the perception of quality. This was done by fooling users,
+    making them believe that they tried different pairs of headphones when infact they used the same pair every time, 
+    listening to the same track with various amount of bass. The results point towards participants 
     finding the tracks modified with an increased amount of bass to be of higher quality.`,
     contributions: [`✏️ Co-wrote the thesis`, `👨‍🏫 Lead user testing`, `📚 Explored related works`],
     externals: [
@@ -187,9 +213,7 @@ export const projectData = [
     image: challengeMe,
     title: "Challenge Me",
     year: "2019",
-    info: `Description Description Description Description Description
-      Description Description Description Description Description
-      Description Description`,
+    info: ``,
     contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
   },
   {
