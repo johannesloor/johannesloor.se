@@ -12,7 +12,7 @@ const CardLink = styled(Link)`
   text-align: center;
   background-color: #f0f8ff;
   border-radius: 25px;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   @media (max-width: ${breakpoints.sm + "px"}) {
     font-size: 15pt;
     width: 90vw;
@@ -20,7 +20,7 @@ const CardLink = styled(Link)`
     margin-bottom: 2rem;
   }
   &:hover {
-    border-color: #fff7f0;
+    border-color: white;
     text-decoration: none;
   }
   &:focus {
@@ -28,12 +28,18 @@ const CardLink = styled(Link)`
   }
 `;
 
+const ButtonText = styled.div`
+  padding: 1.5rem 2rem;
+`;
+
 interface CardProps {
   url?: string;
 }
 
 const Card: React.FC<CardProps> = ({ children, url }) => (
-  <CardLink to={url ? url : "/"}>{children}</CardLink>
+  <CardLink to={url ? url : "/"}>
+    <ButtonText>{children}</ButtonText>
+  </CardLink>
 );
 
 export default Card;

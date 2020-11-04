@@ -1,8 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-
 import Page from "../components/Page";
-import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
 import meCap from "../images/meCap.jpg";
@@ -11,11 +9,14 @@ import meBirthday from "../images/meBirthday.jpg";
 import meSwim from "../images/meSwim.jpg";
 
 import { breakpoints } from "../styles/variables";
+import { widths } from "../styles/variables";
+import { getEmSize } from "../styles/mixins";
 
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 80%;
+  max-width: ${getEmSize(widths.lg)}em;
   margin-top: 2rem;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
@@ -30,7 +31,7 @@ const CardWrapper = styled.div`
 const Title = styled.h1`
   display: block;
   width: 100%;
-  padding-top: 1rem;
+  margin: 1rem;
   text-align: center;
   font-style: italic;
   @media (max-width: ${breakpoints.sm + "px"}) {
@@ -38,22 +39,9 @@ const Title = styled.h1`
   }
 `;
 
-const VaryingWord = styled.div`
+const VaryingWord = styled.span`
   display: inline;
-  position: relative;
-  top: 0;
-  transition: top ease 0.5s;
-  &:hover {
-    color: red;
-    top: -10px;
-  }
-`;
-
-const ButtonText = styled.div`
-  padding: 2rem;
-  @media (max-width: ${breakpoints.xs + "px"}) {
-    padding: 2rem;
-  }
+  color: red;
 `;
 
 const PictureWrapper = styled.div`
@@ -63,45 +51,106 @@ const PictureWrapper = styled.div`
   flex-wrap: wrap;
   width: 90vw;
 `;
+
 const ProfilePic = styled.img`
   width: 15%;
   height: 100%;
-  border-radius: 10%;
+  border-radius: 10% 0;
   @media (max-width: ${breakpoints.md + "px"}) {
     width: 25%;
   }
 `;
 
-let interests = ["Apple", "music", "smart home", "golf"];
-let wordCount = Math.floor(Math.random() * Math.floor(interests.length));
-let randomWord = interests[wordCount];
+let interests = ["Apple", "music", "smart home", "golf", "cat"];
+let i = 0;
+function getWord() {
+  let word = interests[i];
+  i += 1;
+  if (i > interests.length - 1) {
+    i = 0;
+  }
+  return word;
+}
 
-const IndexPage = () => (
-  <IndexLayout>
-    <Page>
-      <PictureWrapper>
-        <ProfilePic src={meCap}></ProfilePic>
-        <ProfilePic src={meCat}></ProfilePic>
-        <ProfilePic src={meBirthday}></ProfilePic>
-        <ProfilePic src={meSwim}></ProfilePic>
-      </PictureWrapper>
-      <Container>
-        <Title>
-          Developer, engineer and <VaryingWord>{randomWord}</VaryingWord>{" "}
-          enthusiast
-        </Title>
+export default class IndexPage extends React.Component {
+  wordErased = false;
+  state = {
+    changingWord: getWord(),
+    nextWord: getWord(),
+    wordBuilderIndex: 0,
+    intervalID: 1,
+    timerID: 1,
+  };
 
-        <CardWrapper>
-          <Card url="/projects">
-            <ButtonText>Projects</ButtonText>
-          </Card>
-          <Card url="/">
-            <ButtonText>About me</ButtonText>
-          </Card>
-        </CardWrapper>
-      </Container>
-    </Page>
-  </IndexLayout>
-);
+  componentDidMount() {
+    this.startInterval();
+  }
 
-export default IndexPage;
+  componentWillUnmount() {
+    clearInterval(this.state.intervalID);
+    clearTimeout(this.state.timerID);
+  }
+
+  setIntervalState() {
+    let intervalID = setInterval(() => this.handleWordChange(), 150);
+    this.setState({ intervalID: intervalID });
+  }
+
+  startInterval() {
+    clearInterval(this.state.intervalID);
+    clearTimeout(this.state.timerID);
+    let timerID = setTimeout(() => this.setIntervalState(), 1500);
+    this.setState({ timerID: timerID });
+  }
+
+  handleWordChange() {
+    if (!this.state.changingWord) {
+      this.wordErased = true;
+    }
+
+    if (!this.wordErased) {
+      this.setState({
+        changingWord: this.state.changingWord.slice(0, -1),
+      });
+    } else if (this.state.changingWord != this.state.nextWord) {
+      this.setState({
+        changingWord:
+          this.state.changingWord +
+          this.state.nextWord[this.state.wordBuilderIndex],
+        wordBuilderIndex: this.state.wordBuilderIndex + 1,
+      });
+    } else {
+      this.setState({
+        nextWord: getWord(),
+        wordBuilderIndex: 0,
+      });
+      this.wordErased = false;
+      this.startInterval();
+    }
+  }
+
+  render() {
+    return (
+      <IndexLayout>
+        <Page>
+          <PictureWrapper>
+            <ProfilePic src={meCap}></ProfilePic>
+            <ProfilePic src={meCat}></ProfilePic>
+            <ProfilePic src={meBirthday}></ProfilePic>
+            <ProfilePic src={meSwim}></ProfilePic>
+          </PictureWrapper>
+          <Title>
+            Developer, engineer and{" "}
+            <VaryingWord>{this.state.changingWord}</VaryingWord> enthusiast
+          </Title>
+          <CardWrapper>
+            <Card url="/projects">Projects</Card>
+            <Card url="/about">About me</Card>
+          </CardWrapper>
+        </Page>
+      </IndexLayout>
+    );
+  }
+}
+
+//export default IndexPage;

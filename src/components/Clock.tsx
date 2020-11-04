@@ -2,6 +2,28 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import { breakpoints } from "../styles/variables";
 import { Link } from "gatsby";
+import { Location } from "@reach/router";
+
+//Sets the ClockWrapper
+function getTimeAngles() {
+  let date = new Date();
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let hourAngle = hours * 30 + minutes / 2 - 90;
+  let minuteAngle = 90 + minutes * 6;
+  let angles = [hourAngle, minuteAngle];
+  return angles;
+}
+
+function getHourAngle() {
+  let angles = getTimeAngles();
+  return angles[0];
+}
+
+function getMinuteAngle() {
+  let angles = getTimeAngles();
+  return angles[1];
+}
 
 const ClockWrapper = styled.div`
   display: flex;
@@ -49,7 +71,7 @@ const SecondWrapper = styled(MinuteWrapper)`
   opacity: 0;
   color: red;
   --deg: 90deg;
-  &:hover {
+  &:active {
     opacity: 1;
   }
 `;
@@ -76,28 +98,31 @@ const SecondHand = styled(MinuteHand)`
   animation: rotate 60s infinite steps(60);
 `;
 
-//Sets the ClockWrapper
-function SetClockWrapper() {
-  let date = new Date();
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
+const GoHomeLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: black;
+  border: solid 1px transparent;
+  height: 100%;
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 20px 0;
+  :link {
+    text-decoration: none;
+  }
+  @media (max-width: ${breakpoints.sm + "px"}) {
+    padding: 0.5rem;
+  }
+`;
 
-  let hourAngle = hours * 30 + minutes / 2 - 90;
-  let minuteAngle = 90 + minutes * 6;
-  let angles = [hourAngle, minuteAngle];
-  return angles;
-}
-function getHourAngle() {
-  let angles = SetClockWrapper();
-  return angles[0];
-}
+const BackIcon = styled.div`
+  font-size: 30pt;
+  color: white;
+  min-height: 4rem;
+`;
 
-function getMinuteAngle() {
-  let angles = SetClockWrapper();
-  return angles[1];
-}
 const Clock: React.FC = () => (
-  <Link to="/">
+  <GoHomeLink to="/">
     <ClockWrapper>
       <Dot></Dot>
       <HourWrapper>
@@ -110,7 +135,14 @@ const Clock: React.FC = () => (
         <SecondHand>MICHAEL</SecondHand>
       </SecondWrapper>
     </ClockWrapper>
-  </Link>
+    <BackIcon>
+      <Location>
+        {({ location }) => {
+          return location.pathname != "/" ? "↩︎" : "";
+        }}
+      </Location>
+    </BackIcon>
+  </GoHomeLink>
 );
 
 export default Clock;

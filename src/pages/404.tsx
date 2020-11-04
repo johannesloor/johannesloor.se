@@ -1,21 +1,19 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
+import * as React from "react";
 
-import Page from '../components/Page'
-import Container from '../components/Container'
-import IndexLayout from '../layouts'
+import Page from "../components/Page";
+import IndexLayout from "../layouts";
+import PageTitle from "../components/PageTitle";
+import Container from "../components/Container";
 
 const NotFoundPage = () => (
   <IndexLayout>
     <Page>
+      <PageTitle>404: Page not found.</PageTitle>
       <Container>
-        <h1>404: Page not found.</h1>
-        <p>
-          You've hit the void. <Link to="/">Go back.</Link>
-        </p>
+        <h3>Well this is awkward... Better click the clock.</h3>
       </Container>
     </Page>
   </IndexLayout>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

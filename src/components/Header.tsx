@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { transparentize } from "polished";
-import { Link } from "gatsby";
 
 import { dimensions, colors, breakpoints } from "../styles/variables";
 import Container from "./Container";
@@ -30,15 +29,14 @@ const HeaderInner = styled(Container)`
   height: auto;
   border: 1px solid transparent;
   border-radius: 25px;
-  
+
   &:hover,
   &:focus {
     text-decoration: none;
-    /*border-color: ${colors.hover};*/
   }
 `;
 
-const HomepageLink = styled(Link)`
+const NameWrapper = styled.div`
   color: ${colors.black};
   font-size: ${dimensions.headerFonts.large + "rem"};
 
@@ -100,10 +98,10 @@ const Header: React.FC = () => (
   <StyledHeader>
     <Clock></Clock>
     <HeaderInner>
-      <HomepageLink to="/">
+      <NameWrapper>
         <FirstName>{DivideString("JOHANNES")}</FirstName>
         <LastName>{DivideString("LOOR")}</LastName>
-      </HomepageLink>
+      </NameWrapper>
     </HeaderInner>
   </StyledHeader>
 );
