@@ -70,7 +70,7 @@ const SecondWrapper = styled(MinuteWrapper)`
   opacity: 0;
   color: red;
   --deg: 90deg;
-  &:hover {
+  &:active {
     opacity: 1;
   }
 `;

@@ -2,11 +2,13 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import { breakpoints, colors } from "../styles/variables";
 import { projectData } from "../styles/projectData";
-import Page from "../components/Page";
-import Container from "../components/Container";
-import IndexLayout from "../layouts";
 import { widths } from "../styles/variables";
 import { getEmSize } from "../styles/mixins";
+
+import Page from "../components/Page";
+import Container from "../components/Container";
+import PageTitle from "../components/PageTitle";
+import IndexLayout from "../layouts";
 
 const Project = styled.div`
   display: flex;
@@ -80,15 +82,6 @@ const Image = styled.img`
 const Video = styled.iframe`
   height: 15rem;
   border: none;
-`;
-
-const PageTitle = styled.h1`
-  width: 100vw;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  background-color: ${colors.background};
 `;
 
 const Projects = () => (
