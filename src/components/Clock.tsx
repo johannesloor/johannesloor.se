@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import { breakpoints } from "../styles/variables";
 import { Link } from "gatsby";
+import { Location } from "@reach/router";
 
 //Sets the ClockWrapper
 function getTimeAngles() {
@@ -134,7 +135,13 @@ const Clock: React.FC = () => (
         <SecondHand>MICHAEL</SecondHand>
       </SecondWrapper>
     </ClockWrapper>
-    <BackIcon>{location.pathname != "/" ? "↩︎" : ""}</BackIcon>
+    <BackIcon>
+      <Location>
+        {({ location }) => {
+          return location.pathname != "/" ? "↩︎" : "";
+        }}
+      </Location>
+    </BackIcon>
   </GoHomeLink>
 );
 
