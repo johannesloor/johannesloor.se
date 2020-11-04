@@ -11,11 +11,15 @@ import sgcpdf from "../pdfs/sgc.pdf";
 import thesisSwedish from "../pdfs/thesisSwedish.pdf";
 import thesisEnglish from "../pdfs/thesisEnglish.pdf";
 import pepperpdf from "../pdfs/pepperreport.pdf";
+import soundcanvaspdf from "../pdfs/soundcanvasreport.pdf";
+import solematepdf from "../pdfs/SoleMate.pdf";
+import syntheseyeserpdf from "../pdfs/syntheseyeserreport.pdf";
+
 
 export const projectData = [
   {
     image: ipadWebsite,
-    title: "johannesloor.se (this very website)",
+    title: "johannesloor.se (this website)",
     year: "2020",
     info: `To showcase my projects and me as a person, I built this website using React and Gatsby. 
     The concept around it, except acting as my portfolio, was to make something that seems ordinary but 
@@ -25,12 +29,6 @@ export const projectData = [
       `🎡 Twirling letters that bring chaos`,
       `🤷‍♂️ Indecisive hobbies that rewrite themselves`,
       "👨‍💻 Designed and built the whole thing",
-    ],
-    externals: [
-      {
-        url: "https://github.com/johannesloor/johannesloor.se",
-        text: "Go to Github page",
-      },
     ],
   },
   {
@@ -64,21 +62,23 @@ export const projectData = [
     externals: [{ url: "http://www.lokomalm.se", text: "Go to website" }],
   },
   {
-    title: "Sound Canvas",
-    vimeoId: "458073967",
+    title: "SoleMate",
+    vimeoId: "475384468",
     year: "2020",
-    info: `Sound Canvas is an art installation that knows where on the blank canvas the user is looking. 
-    Using this information it plays different sounds, matching various environments, 
-    making the user feel as if they are walking within the painting, just by looking around. 
-    This was done by mapping sounds to points on a computer screen, using Pure-data, 
-    and having the mousecursor be controlled by a Tobii eye-tracker.`,
-    contributions: [`💭 Conceptualised the idea`, `👨‍💻 Explored Pure-Data`, `🖼 Designed the sonic layout of the canvas`],
-    externals: [
-      {
-        url: sgcpdf,
-        text: "Read report",
-      },
+    info: `SoleMate is an explorative design project striving to achieve the ambient feeling of 
+    copresence between people without the need of physical presence. 
+    Two pairs of shoe soles are equipped with pressure sensors and vibration motors and are connected 
+    through the internet, using Arduinos. A step taken with one pair of the soles results in haptic feedback in the other, 
+    and vice versa.`,
+    contributions: [
+      "👨‍💻 Programmed the Arduinos",
+      "👠 Co-designed the experience", 
+      "🔨 Explored the world of physical interaction design",
     ],
+    externals: [{
+      url: solematepdf,
+      text: "Read report",
+    },],
   },
   {
     title: "Sonic Gesture Challenge",
@@ -107,23 +107,21 @@ export const projectData = [
     ],
   },
   {
-    title: "SoleMate",
-    vimeoId: "475384468",
+    title: "Sound Canvas",
+    vimeoId: "458073967",
     year: "2020",
-    info: `SoleMate is an explorative design project striving to achieve the ambient feeling of 
-    copresence between people without the need of physical presence. 
-    Two pairs of shoe soles are equipped with pressure sensors and vibration motors and are connected 
-    through the internet, using Arduinos. A step taken with one pair of the soles results in haptic feedback in the other, 
-    and vice versa.`,
-    contributions: [
-      "👨‍💻 Programmed the Arduinos",
-      "👠 Co-designed the experience", 
-      "🔨 Explored the world of physical interaction design",
+    info: `Sound Canvas is an art installation that knows where on the blank canvas the user is looking. 
+    Using this information it plays different sounds, matching various environments, 
+    making the user feel as if they are walking within the painting, just by looking around. 
+    This was done by mapping sounds to points on a computer screen, using Pure-data, 
+    and having the mousecursor be controlled by a Tobii eye-tracker.`,
+    contributions: [`💭 Conceptualised the idea`, `👨‍💻 Explored Pure-Data`, `🖼 Designed the sonic layout of the canvas`],
+    externals: [
+      {
+        url: soundcanvaspdf,
+        text: "Read report",
+      },
     ],
-    externals: [{
-      url: sgcpdf,
-      text: "Read report",
-    },],
   },
   {
     vimeoId: "458073950",
@@ -135,10 +133,6 @@ export const projectData = [
     A fun project in which I not only learned about visualization techniques 
     but also a fair amount about the Swedish parliamentary system. `,
     contributions: [`💻 Front-end development`, `🌊 Co-designed the visual flow of data`, `📽 Open Riksdag - The movie`],
-    externals: [
-      
-      
-    ],
   },
   {
     vimeoId: "458073896",
@@ -150,12 +144,6 @@ export const projectData = [
     that gave a glimts into the everyday struggle most parents face when it's time for bed.`,
     contributions: [`👨‍💻 Built the game using Python`, `📡 Connected the data from the Arduino sensor to the game`, 
     `🕹 Co-designed the controller`],
-    externals: [
-      {
-        url: sgcpdf,
-        text: "Read report",
-      },
-    ],
   },
   {
     image: pepper,
@@ -182,7 +170,7 @@ export const projectData = [
     contributions: [`👨‍💻 Programmed the Bela to handle the input/output`, `👀 Learned how to use an eye-tracker`, `🙋‍♀️ Designed the user experience`],
     externals: [
       {
-        url: sgcpdf,
+        url: syntheseyeserpdf,
         text: "Read report",
       },
     ],
@@ -196,7 +184,7 @@ export const projectData = [
     making them believe that they tried different pairs of headphones when infact they used the same pair every time, 
     listening to the same track with various amount of bass. The results point towards participants 
     finding the tracks modified with an increased amount of bass to be of higher quality.`,
-    contributions: [`✏️ Co-wrote the thesis`, `👨‍🏫 Lead user testing`, `📚 Explored related works`],
+    contributions: [`✏️ Co-wrote the thesis`, `🎧 Lead user testing`, `📚 Explored related works`],
     externals: [
       {
         url: thesisSwedish,
@@ -213,16 +201,22 @@ export const projectData = [
     image: challengeMe,
     title: "Challenge Me",
     year: "2019",
-    info: ``,
-    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    info: `Challenge Me is an app for challenging your skater friends to bust a trick at specific locations. 
+    Once you have added a challenge, your friends can find them on the map and take on the challenge. 
+    This prototype was built using Reactive Native with the aim to explore mobile development in general 
+    and more specifically React Native. Having a few old skaters (Hello, fellow kids) in the development 
+    team made the project engaging and helped to really understand the potential user group.`,
+    contributions: [`🗺 Built the map interface `, `🎨 Co-designed the entire app`, `🛹 Bragged about my former skating skills`],
   },
+
   {
     image: evacuateMe,
     title: "Evacuate Me",
     year: "2019",
-    info: `Description Description Description Description Description
-      Description Description Description Description Description
-      Description Description`,
-    contributions: [`⏰ `, `🎡 `, `🤷‍♂️ `, "👨‍💻 "],
+    info: `The world has come to an end and you have to move to a new planet, but where should you go? 
+    Tatooine? Naboo? Or maybe Endor? Evacuate Me is a website that helps you decide by narrowing down your 
+    choices according to your preferred weather, population size, gravity and even time. 
+    It is built using Vue and SWAPI (Star Wars API) and will hopefully help you in the search for your new home.`,
+    contributions: [`💻 Learned about and used Vue `, "👥 Built the population selector page", `🪐 Connected the Star Wars API`, ],
   },
 ];

@@ -13,7 +13,7 @@ const Project = styled.div`
   flex-direction: column;
   max-width: ${getEmSize(widths.lg)}em;
   margin: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 1rem;
   border-radius: 10px 0;
   background-color: #f0f8ff;
 
@@ -57,7 +57,7 @@ const ButtonWrapper = styled.div`
   flex-flow: wrap;
   width: 100%;
   justify-content: space-evenly;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
 `;
 
 const Button = styled.a`
