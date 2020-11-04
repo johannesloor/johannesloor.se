@@ -17,6 +17,7 @@ const StyledHeader = styled.header`
     height: 20%;
   }
   padding: ${dimensions.containerPadding}rem;
+  padding-bottom: 0;
   background-color: ${colors.background};
   color: ${transparentize(0.5, colors.white)};
   z-index: 1;
@@ -25,7 +26,7 @@ const StyledHeader = styled.header`
 const HeaderInner = styled(Container)`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  padding-top: 0.5rem;
   height: auto;
   border: 1px solid transparent;
   border-radius: 25px;

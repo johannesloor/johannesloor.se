@@ -3,7 +3,7 @@
 export const colors = {
   background: "#FFD972",
   hover: "#fbfafa",
-  brand: "#663399",
+  brand: "#f0f8ff",
   lilac: "#9d7cbf",
   accent: "#ffb238",
   success: "#37b635",
