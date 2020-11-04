@@ -4,7 +4,7 @@ import ipadWebsite from "../images/myWebsite.png";
 import ofr from "../images/ofr.png";
 import thesis from "../images/thesis.png";
 import pepper from "../images/pepperposter.png";
-import challengeMe from "../images/challengeMe.png";
+import challengeMe from "../images/challengemeimage.png";
 import evacuateMe from "../images/evacuateMe.png";
 
 import sgcpdf from "../pdfs/sgc.pdf";
