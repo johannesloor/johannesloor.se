@@ -29,11 +29,10 @@ const HeaderInner = styled(Container)`
   height: auto;
   border: 1px solid transparent;
   border-radius: 25px;
-  
+
   &:hover,
   &:focus {
     text-decoration: none;
-    /*border-color: ${colors.hover};*/
   }
 `;
 

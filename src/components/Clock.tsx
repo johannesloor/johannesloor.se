@@ -109,9 +109,6 @@ const GoHomeLink = styled(Link)`
   :link {
     text-decoration: none;
   }
-  :hover {
-    border: solid 1px white;
-  }
   @media (max-width: ${breakpoints.sm + "px"}) {
     padding: 0.5rem;
   }
@@ -120,6 +117,7 @@ const GoHomeLink = styled(Link)`
 const BackIcon = styled.div`
   font-size: 30pt;
   color: white;
+  min-height: 4rem;
 `;
 
 const Clock: React.FC = () => (
@@ -136,7 +134,7 @@ const Clock: React.FC = () => (
         <SecondHand>MICHAEL</SecondHand>
       </SecondWrapper>
     </ClockWrapper>
-    <BackIcon>↩︎</BackIcon>
+    <BackIcon>{location.pathname != "/" ? "↩︎" : ""}</BackIcon>
   </GoHomeLink>
 );
 

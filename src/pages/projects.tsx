@@ -16,7 +16,6 @@ const Project = styled.div`
   padding: 0.5rem 1rem 1rem;
   border-radius: 10px 0;
   background-color: #f0f8ff;
-
   color: black;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;

@@ -12,7 +12,7 @@ const CardLink = styled(Link)`
   text-align: center;
   background-color: #f0f8ff;
   border-radius: 25px;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   @media (max-width: ${breakpoints.sm + "px"}) {
     font-size: 15pt;
     width: 90vw;

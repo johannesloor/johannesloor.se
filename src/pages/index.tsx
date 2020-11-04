@@ -9,11 +9,14 @@ import meBirthday from "../images/meBirthday.jpg";
 import meSwim from "../images/meSwim.jpg";
 
 import { breakpoints } from "../styles/variables";
+import { widths } from "../styles/variables";
+import { getEmSize } from "../styles/mixins";
 
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 60%;
+  width: 80%;
+  max-width: ${getEmSize(widths.lg)}em;
   margin-top: 2rem;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
@@ -28,7 +31,7 @@ const CardWrapper = styled.div`
 const Title = styled.h1`
   display: block;
   width: 100%;
-  margin-top: 1rem;
+  margin: 1rem;
   text-align: center;
   font-style: italic;
   @media (max-width: ${breakpoints.sm + "px"}) {
