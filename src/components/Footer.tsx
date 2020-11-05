@@ -42,7 +42,7 @@ const PageLink = styled(Link)`
 
 const Footer: React.FC = () => (
   <FooterWrapper>
-    <Location>
+    {/* <Location>
       {({ location }) => {
         return location.pathname != "/" ? (
           <Pages>
@@ -53,7 +53,7 @@ const Footer: React.FC = () => (
           ""
         );
       }}
-    </Location>
+    </Location> */}
 
     <Contact>
       <Mail href="mailto: johannes.loor@gmail.com">

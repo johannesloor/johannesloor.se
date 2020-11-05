@@ -9,6 +9,11 @@ import Page from "../components/Page";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import IndexLayout from "../layouts";
+import { Link } from "gatsby";
+
+const ProjectsContainer = styled(Container)`
+  flex-direction: row;
+`;
 
 const Project = styled.div`
   display: flex;
@@ -87,9 +92,9 @@ const Video = styled.iframe`
 const Projects = () => (
   <IndexLayout>
     <Page>
-      <PageTitle>Projects</PageTitle>
+      <PageTitle currentPage="Projects" linkedPage="About" reverse />
 
-      <Container>
+      <ProjectsContainer>
         {projectData.map((project) => (
           <Project key={project.title}>
             <Description>
@@ -137,7 +142,7 @@ const Projects = () => (
             </Description>
           </Project>
         ))}
-      </Container>
+      </ProjectsContainer>
     </Page>
   </IndexLayout>
 );
