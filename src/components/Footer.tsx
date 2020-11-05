@@ -14,7 +14,6 @@ const FooterWrapper = styled.footer`
 
 const Contact = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   border: 1px solid white;
   border-radius: 10px 0;
