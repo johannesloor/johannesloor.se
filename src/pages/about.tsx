@@ -39,18 +39,10 @@ const About = () => (
       <PageTitle currentPage="About" linkedPage="Projects" />
       <Container>
         <DescriptionWrapper>
-          <DescriptionText>
-            Coming soon Coming soon Coming soon Coming soon Coming soon Coming
-            soon Coming soon
-          </DescriptionText>
-          <ProfilePic src={meCap}></ProfilePic>
-        </DescriptionWrapper>
-        <DescriptionWrapper>
-          <ProfilePic src={meCap}></ProfilePic>
           <DescriptionText>Coming soon</DescriptionText>
+          <ProfilePic src={meCap}></ProfilePic>
         </DescriptionWrapper>
       </Container>
-      <PageTitle>Contact</PageTitle>
     </Page>
   </IndexLayout>
 );

@@ -30,7 +30,7 @@ const Footer: React.FC = () => (
   <FooterWrapper>
     <Contact>
       <Mail href="mailto: johannes.loor@gmail.com">
-        johannes.loor@gmail.com
+        ✉️ johannes.loor@gmail.com
       </Mail>
     </Contact>
   </FooterWrapper>
