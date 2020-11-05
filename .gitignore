@@ -1,2 +1,4 @@
 node_modules
 **/.DS_Store
+.cache/
+public/page-data/dev-404-page/page-data.json
