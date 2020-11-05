@@ -9,7 +9,6 @@ import Page from "../components/Page";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import IndexLayout from "../layouts";
-import { Link } from "gatsby";
 
 const ProjectsContainer = styled(Container)`
   flex-direction: row;
