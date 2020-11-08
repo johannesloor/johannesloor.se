@@ -164,6 +164,12 @@ const About = () => (
             I love cats and thankfully most of them seem to love me back. 😻
           </DescriptionText>
         </DescriptionWrapper>
+        <ContactInfo>
+          <StyledP>
+            <h3>Want to talk business or about Apple, music and cats?</h3>
+            <h1>⬇</h1>
+          </StyledP>
+        </ContactInfo>
       </Container>
     </Page>
   </IndexLayout>
