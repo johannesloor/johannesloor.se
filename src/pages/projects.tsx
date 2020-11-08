@@ -23,7 +23,7 @@ const Project = styled.div`
   margin: 1rem;
   padding: 0.5rem 1rem 1rem;
   border-radius: 10px 0;
-  background-color: #f0f8ff;
+  background-color: ${colors.brand};
   color: black;
   @media (max-width: ${breakpoints.sm + "px"}) {
     justify-content: center;
@@ -48,7 +48,7 @@ const DescriptionText = styled.div`
   }
 `;
 
-const ImageBtnContainer = styled.div`
+const ImageTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 45%;
@@ -71,7 +71,7 @@ const Button = styled.a`
   padding: 0.5rem 1rem;
   margin: 0.5rem;
   background-color: ${colors.background};
-  border-radius: 25px;
+  border-radius: 10px 0;
   text-decoration: none;
   color: black;
   border: 2px solid transparent;
@@ -99,7 +99,7 @@ const Projects = () => (
         {projectData.map((project) => (
           <Project key={project.title}>
             <Description>
-              <ImageBtnContainer>
+              <ImageTitleContainer>
                 <h3>{project.title}</h3>
                 <p>{project.year}</p>
                 {project.vimeoId ? (
@@ -111,7 +111,7 @@ const Projects = () => (
                 ) : (
                   <Image src={project.image}></Image>
                 )}
-              </ImageBtnContainer>
+              </ImageTitleContainer>
               <DescriptionText>
                 <div>
                   <h4>Info</h4>

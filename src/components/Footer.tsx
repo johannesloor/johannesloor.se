@@ -18,11 +18,17 @@ const Contact = styled.div`
   border: 1px solid white;
   border-radius: 10px 0;
   margin-top: 1rem;
+  &:hover {
+    background-color: ${colors.brand};
+  }
 `;
 
 const Mail = styled.a`
   color: black;
   padding: 1rem;
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 const Footer: React.FC = () => (

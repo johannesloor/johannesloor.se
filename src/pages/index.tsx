@@ -4,9 +4,9 @@ import Page from "../components/Page";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
 import meCap from "../images/meCap.jpg";
-import meCat from "../images/meCat.jpg";
+import meCat from "../images/meSnow.jpeg";
 import meBirthday from "../images/meBirthday.jpg";
-import meSwim from "../images/meSwim.jpg";
+import meNature from "../images/meNature.jpeg";
 
 import { breakpoints } from "../styles/variables";
 import { widths } from "../styles/variables";
@@ -21,21 +21,33 @@ const CardWrapper = styled.div`
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   @media (max-width: ${breakpoints.xs + "px"}) {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 `;
 
+const SloganWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const Title = styled.h1`
   display: block;
-  width: 100%;
-  margin: 1rem;
-  text-align: center;
+  width: 55rem;
+  min-height: 6rem;
+  margin-top: 3rem;
+
+  text-align: left;
   font-style: italic;
+  @media (max-width: ${breakpoints.xl + "px"}) {
+    width: 70vw;
+    margin-top: 2rem;
+  }
   @media (max-width: ${breakpoints.sm + "px"}) {
+    margin-top: 1rem;
     font-size: 20pt;
+    width: 80vw;
   }
 `;
 
@@ -137,12 +149,15 @@ export default class IndexPage extends React.Component {
             <ProfilePic src={meCap}></ProfilePic>
             <ProfilePic src={meCat}></ProfilePic>
             <ProfilePic src={meBirthday}></ProfilePic>
-            <ProfilePic src={meSwim}></ProfilePic>
+            <ProfilePic src={meNature}></ProfilePic>
           </PictureWrapper>
-          <Title>
-            Developer, engineer and{" "}
-            <VaryingWord>{this.state.changingWord}</VaryingWord> enthusiast
-          </Title>
+          <SloganWrapper>
+            <Title>
+              Developer, engineer and{" "}
+              <VaryingWord>{this.state.changingWord}</VaryingWord> enthusiast
+            </Title>
+          </SloganWrapper>
+
           <CardWrapper>
             <Card url="/projects">Projects</Card>
             <Card url="/about">About me</Card>
