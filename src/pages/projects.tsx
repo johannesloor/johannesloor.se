@@ -11,21 +11,23 @@ import PageTitle from "../components/PageTitle";
 import IndexLayout from "../layouts";
 
 const ProjectsContainer = styled(Container)`
+  width: 100%;
   flex-direction: row;
 `;
 
 const Project = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: ${getEmSize(widths.lg)}em;
-  margin: 2rem;
+  margin: 1rem;
   padding: 0.5rem 1rem 1rem;
   border-radius: 10px 0;
   background-color: #f0f8ff;
   color: black;
   @media (max-width: ${breakpoints.sm + "px"}) {
-    flex-direction: column;
-    margin: 2rem 0;
+    justify-content: center;
+    margin: 1rem 0;
   }
 `;
 
