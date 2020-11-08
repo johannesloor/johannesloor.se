@@ -93,20 +93,16 @@ const ContactInfo = styled.div`
   margin-top: 1rem;
 `;
 
-const StyledP = styled.p`
-  margin: 0;
-`;
-
 const About = () => (
   <IndexLayout>
     <Page>
       <PageTitle currentPage="About" linkedPage="Projects" />
       <Container>
         <ContactInfo>
-          <StyledP>
+          <div>
             <h3>Contact</h3>
             (In Swedish or English)
-          </StyledP>
+          </div>
         </ContactInfo>
         <DescriptionWrapper>
           <Contact>
@@ -165,10 +161,10 @@ const About = () => (
           </DescriptionText>
         </DescriptionWrapper>
         <ContactInfo>
-          <StyledP>
+          <div>
             <h3>Want to talk business or about Apple, music and cats?</h3>
             <h1>⬇</h1>
-          </StyledP>
+          </div>
         </ContactInfo>
       </Container>
     </Page>

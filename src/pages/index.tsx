@@ -17,7 +17,6 @@ const CardWrapper = styled.div`
   flex-direction: row;
   width: 80%;
   max-width: ${getEmSize(widths.lg)}em;
-  margin-top: 2rem;
   @media (max-width: ${breakpoints.sm + "px"}) {
     flex-direction: column;
     align-items: center;
@@ -32,20 +31,23 @@ const SloganWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+
 const Title = styled.h1`
   display: block;
   width: 55rem;
-  min-height: 6rem;
-  margin-top: 3rem;
 
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   text-align: left;
   font-style: italic;
   @media (max-width: ${breakpoints.xl + "px"}) {
     width: 70vw;
     margin-top: 2rem;
+    min-height: 6rem;
   }
   @media (max-width: ${breakpoints.sm + "px"}) {
     margin-top: 1rem;
+    margin-bottom: 0;
     font-size: 20pt;
     width: 80vw;
   }
