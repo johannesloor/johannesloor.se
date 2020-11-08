@@ -9,7 +9,7 @@ const FooterWrapper = styled.footer`
   flex-wrap: wrap;
   align-items: center;
   background-color: ${colors.background};
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 `;
 
 const Contact = styled.div`
