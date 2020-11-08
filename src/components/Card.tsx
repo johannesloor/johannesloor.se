@@ -10,9 +10,9 @@ const CardLink = styled(Link)`
   margin: 1rem;
   font-size: 21pt;
   text-align: center;
-  background-color: ${colors.brand};
-  border-radius: 25px;
-  border: 3px solid transparent;
+  background-color: ${colors.background};
+  border-radius: 25px 0;
+  border: 2px solid white;
   @media (max-width: ${breakpoints.sm + "px"}) {
     font-size: 15pt;
     width: 90vw;
@@ -20,7 +20,7 @@ const CardLink = styled(Link)`
     margin-bottom: 2rem;
   }
   &:hover {
-    border-color: white;
+    background-color: ${colors.brand};
     text-decoration: none;
   }
   &:focus {

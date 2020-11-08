@@ -150,7 +150,7 @@ export const projectData = [
     title: "The natural language of robots",
     year: "2019",
     info: `In this project we explored the perception of robot-to-human communication using Pepper, a humanoid robot.
-    Pepper was programmed to react to a story told by user test participants with either gestures and sounds or solely with gestures. 
+    Pepper was programmed to react to a story, told by user test participants, with either gestures and sounds or solely with gestures. 
     This was done to see if and how the users perception of the robot changed depending on auditory feedback. `,
     contributions: [`🤖 Helped program Pepper the robot`, `📝 Co-designed user tests`, `👨‍🏫 Lead user testing`],
     externals: [
@@ -165,7 +165,7 @@ export const projectData = [
     title: "SynthesEyeser",
     year: "2019",
     info: `While exploring multimodal interactions, the gaze and gesture based instrument SynthesEyeser was built. 
-    The instrumentet uses a Tobii eye-tracker to understand where, on the custom built UI, the player is looking changing the pitch and amount of effect applied to the sound.
+    The instrument uses a Tobii eye-tracker to understand where, on the custom built UI, the player is looking changing the pitch and amount of effect applied to the sound.
     The volume is controlled through gestures infront of a proximity sensor. All of which is controlled via a Bela micro-controller.`,
     contributions: [`👨‍💻 Programmed the Bela to handle the input/output`, `👀 Learned how to use an eye-tracker`, `🙋‍♀️ Designed the user experience`],
     externals: [

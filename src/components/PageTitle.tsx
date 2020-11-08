@@ -7,7 +7,7 @@ type TitlePorps = {
   reversed?: boolean;
 };
 
-const Title = styled.h1<TitlePorps>`
+const Title = styled.div<TitlePorps>`
   display: flex;
   flex-direction: ${(props) => (props.reversed ? "row-reverse" : "row")};
   justify-content: center;
@@ -19,8 +19,8 @@ const Title = styled.h1<TitlePorps>`
   background-color: ${colors.background};
 `;
 
-const PageName = styled.div`
-  margin: 0 2rem;
+const PageName = styled.h1`
+  padding: 0 1rem;
 `;
 
 const StyledLink = styled(Link)`
