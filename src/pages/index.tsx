@@ -4,7 +4,7 @@ import Page from "../components/Page";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
 import meCap from "../images/meCap.jpg";
-import meCat from "../images/meSnow.jpeg";
+import meSnow from "../images/meSnow.jpeg";
 import meBirthday from "../images/meBirthday.jpg";
 import meNature from "../images/meNature.jpeg";
 
@@ -147,7 +147,7 @@ export default class IndexPage extends React.Component {
         <Page>
           <PictureWrapper>
             <ProfilePic src={meCap}></ProfilePic>
-            <ProfilePic src={meCat}></ProfilePic>
+            <ProfilePic src={meSnow}></ProfilePic>
             <ProfilePic src={meBirthday}></ProfilePic>
             <ProfilePic src={meNature}></ProfilePic>
           </PictureWrapper>
@@ -167,5 +167,3 @@ export default class IndexPage extends React.Component {
     );
   }
 }
-
-//export default IndexPage;
