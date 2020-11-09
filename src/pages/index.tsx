@@ -1,12 +1,11 @@
 import * as React from "react";
 import styled from "@emotion/styled";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+
 import Page from "../components/Page";
 import IndexLayout from "../layouts";
 import Card from "../components/Card";
-import meCap from "../images/meCap.jpg";
-import meSnow from "../images/meSnow.jpeg";
-import meBirthday from "../images/meBirthday.jpg";
-import meNature from "../images/meNature.jpeg";
 
 import { breakpoints } from "../styles/variables";
 import { widths } from "../styles/variables";
@@ -66,9 +65,8 @@ const PictureWrapper = styled.div`
   width: 90vw;
 `;
 
-const ProfilePic = styled.img`
+const ProfilePic = styled(Img)`
   width: 15%;
-  height: 100%;
   border-radius: 10% 0;
   @media (max-width: ${breakpoints.md + "px"}) {
     width: 25%;
@@ -87,6 +85,9 @@ function getWord() {
 }
 
 export default class IndexPage extends React.Component {
+  constructor(props: Readonly<{}>) {
+    super(props);
+  }
   wordErased = false;
   state = {
     changingWord: getWord(),
@@ -147,12 +148,7 @@ export default class IndexPage extends React.Component {
     return (
       <IndexLayout>
         <Page>
-          <PictureWrapper>
-            <ProfilePic src={meCap}></ProfilePic>
-            <ProfilePic src={meSnow}></ProfilePic>
-            <ProfilePic src={meBirthday}></ProfilePic>
-            <ProfilePic src={meNature}></ProfilePic>
-          </PictureWrapper>
+          <PicturesOfMe />
           <SloganWrapper>
             <Title>
               Developer, engineer and{" "}
@@ -169,3 +165,66 @@ export default class IndexPage extends React.Component {
     );
   }
 }
+
+const PicturesOfMe = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      meCap: file(relativePath: { eq: "meCap.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      meSnow: file(relativePath: { eq: "meSnow.jpeg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      meBirthday: file(relativePath: { eq: "meBirthday.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      meNature: file(relativePath: { eq: "meNature.jpeg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+  return (
+    <PictureWrapper>
+      <ProfilePic
+        fluid={{
+          ...data.meCap.childImageSharp.fluid,
+          aspectRatio: 3 / 4,
+        }}
+      />
+      <ProfilePic
+        fluid={{
+          ...data.meSnow.childImageSharp.fluid,
+          aspectRatio: 3 / 4,
+        }}
+      />
+      <ProfilePic
+        fluid={{
+          ...data.meBirthday.childImageSharp.fluid,
+          aspectRatio: 3 / 4,
+        }}
+      />
+      <ProfilePic
+        fluid={{
+          ...data.meNature.childImageSharp.fluid,
+          aspectRatio: 3 / 4,
+        }}
+      />
+    </PictureWrapper>
+  );
+};
