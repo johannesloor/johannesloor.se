@@ -4,27 +4,6 @@ import { breakpoints } from "../styles/variables";
 import { Link } from "gatsby";
 import { Location } from "@reach/router";
 
-//Sets the ClockWrapper
-function getTimeAngles() {
-  let date = new Date();
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
-  let hourAngle = hours * 30 + minutes / 2 - 90;
-  let minuteAngle = 90 + minutes * 6;
-  let angles = [hourAngle, minuteAngle];
-  return angles;
-}
-
-function getHourAngle() {
-  let angles = getTimeAngles();
-  return angles[0];
-}
-
-function getMinuteAngle() {
-  let angles = getTimeAngles();
-  return angles[1];
-}
-
 const ClockWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -52,19 +31,23 @@ const Dot = styled.div`
   border-radius: 50%;
 `;
 
-const HourWrapper = styled(ClockWrapper)`
+type AngleProps = {
+  angle?: number;
+};
+
+const HourWrapper = styled(ClockWrapper)<AngleProps>`
   flex-direction: row-reverse;
   position: absolute;
   justify-content: left;
 
-  --deg: ${getHourAngle}deg;
+  --deg: ${(props) => props.angle}deg;
   transform: rotate(var(--deg, 0));
 `;
 
 const MinuteWrapper = styled(HourWrapper)`
   flex-direction: row;
   background: transparent;
-  --deg: ${getMinuteAngle}deg;
+  --deg: ${(props) => props.angle}deg;
 `;
 
 const SecondWrapper = styled(MinuteWrapper)`
@@ -121,28 +104,42 @@ const BackIcon = styled.div`
   min-height: 4rem;
 `;
 
-const Clock: React.FC = () => (
-  <GoHomeLink to="/">
-    <ClockWrapper>
-      <Dot></Dot>
-      <HourWrapper>
-        <HourHand>LOOR</HourHand>
-      </HourWrapper>
-      <MinuteWrapper>
-        <MinuteHand>JOHANNES</MinuteHand>
-      </MinuteWrapper>
-      <SecondWrapper>
-        <SecondHand>MICHAEL</SecondHand>
-      </SecondWrapper>
-    </ClockWrapper>
-    <BackIcon>
-      <Location>
-        {({ location }) => {
-          return location.pathname != "/" ? "↩︎" : "";
-        }}
-      </Location>
-    </BackIcon>
-  </GoHomeLink>
-);
+class Clock extends React.Component {
+  constructor(props: Readonly<{}>) {
+    super(props);
+  }
+
+  date = new Date();
+  state = {
+    minuteAngle: this.date.getMinutes() * 6 + 90,
+    hourAngle: this.date.getHours() * 30 + this.date.getMinutes() / 2 - 90,
+  };
+
+  render() {
+    return (
+      <GoHomeLink to="/">
+        <ClockWrapper>
+          <Dot></Dot>
+          <HourWrapper angle={this.state.hourAngle}>
+            <HourHand>LOOR</HourHand>
+          </HourWrapper>
+          <MinuteWrapper angle={this.state.minuteAngle}>
+            <MinuteHand>JOHANNES</MinuteHand>
+          </MinuteWrapper>
+          <SecondWrapper>
+            <SecondHand>MICHAEL</SecondHand>
+          </SecondWrapper>
+        </ClockWrapper>
+        <BackIcon>
+          <Location>
+            {({ location }) => {
+              return location.pathname != "/" ? "↩︎" : "";
+            }}
+          </Location>
+        </BackIcon>
+      </GoHomeLink>
+    );
+  }
+}
 
 export default Clock;
