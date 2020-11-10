@@ -31,9 +31,10 @@ type TextProps = {
 
 const DescriptionText = styled.div<TextProps>`
   font-size: ${dimensions.fontSize.regular + "pt"};
-  max-width: 40rem;
+  max-width: 35rem;
   padding: ${(props) => (props.reversed ? "0 0 0 1rem" : "0 1rem 0 0")};
   @media (max-width: ${breakpoints.md + "px"}) {
+    max-width: 70%;
     font-size: ${dimensions.fontSize.small + "pt"};
   }
   @media (max-width: ${breakpoints.xs + "px"}) {
@@ -173,8 +174,8 @@ const About: React.FC = () => {
           <DescriptionWrapper>
             <DescriptionText>
               I'm a developer with a passion for usability and design. Being in
-              close contact with the design team feels natural to me and I love
-              exploring the design space together.
+              close contact with a design team feels natural to me and I love
+              exploring creative solutions together.
             </DescriptionText>
             <ProfilePic
               fluid={{
@@ -222,8 +223,10 @@ const About: React.FC = () => {
           </DescriptionWrapper>
           <ContactInfo>
             <div>
-              <h4>Want to talk business or about Apple, music and cats?</h4>
-              <h1>⬇</h1>
+              <h4>
+                Want to talk business opportunities or about the latest iPhone?
+              </h4>
+              <h1>↓</h1>
             </div>
           </ContactInfo>
         </Container>

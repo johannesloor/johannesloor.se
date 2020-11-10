@@ -108,9 +108,7 @@ const Projects = () => (
                 ) : (
                   <ProjectImages
                     pictureNr={project.pictureNr ? project.pictureNr : 0}
-                  ></ProjectImages>
-                  // <Image src={project.image}></Image>
-                  //<Img fluid={project.image}></Img>
+                  />
                 )}
               </ImageTitleContainer>
               <DescriptionText>
