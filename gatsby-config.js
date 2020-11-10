@@ -2,17 +2,24 @@
 
 module.exports = {
   siteMetadata: {
-    title: "Johannes Loor Portfolio",
+    title: "Johannes Loor",
     description: "Portfolio for Johannes Loor",
     keywords: "gatsbyjs, gatsby, javascript, sample, developer",
-    siteUrl: "https://gatsby-starter-typescript-plus.netlify.com",
+    siteUrl: "https://www.johannesloor.se",
     author: {
       name: "Johannes Loor",
-      url: "",
+      url: "https://www.johannesloor.se",
       email: "johannes.loor@gmail.com"
     }
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: 'images',
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
