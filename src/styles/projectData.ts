@@ -1,12 +1,3 @@
-import ol from "../images/Osqledaren.png";
-import sgc from "../images/SGC.png";
-import ipadWebsite from "../images/myWebsite.png";
-import ofr from "../images/ofr.png";
-import thesis from "../images/thesis.png";
-import pepper from "../images/pepperposter.png";
-import challengeMe from "../images/challengemeimage.png";
-import evacuateMe from "../images/evacuateMe.png";
-
 import sgcpdf from "../pdfs/sgc.pdf";
 import thesisSwedish from "../pdfs/thesisSwedish.pdf";
 import thesisEnglish from "../pdfs/thesisEnglish.pdf";
@@ -15,10 +6,9 @@ import soundcanvaspdf from "../pdfs/soundcanvasreport.pdf";
 import solematepdf from "../pdfs/SoleMate.pdf";
 import syntheseyeserpdf from "../pdfs/syntheseyeserreport.pdf";
 
-
 export const projectData = [
   {
-    image: ipadWebsite,
+    pictureNr: 0,
     title: "johannesloor.se (this website)",
     year: "2020",
     info: `To showcase my projects and me as a person, I built this website using React and Gatsby. 
@@ -32,7 +22,7 @@ export const projectData = [
     ],
   },
   {
-    image: ol,
+    pictureNr: 1,
     title: "Osqledaren.se",
     year: "2019/2020",
     info: `Osqledaren is the student union newspaper at KTH. For the
@@ -47,7 +37,7 @@ export const projectData = [
     externals: [{ url: "https://osqledaren.se", text: "Go to website" }],
   },
   {
-    image: ofr,
+    pictureNr: 2,
     title: "Östermalms Föreningsråd",
     year: "2016 - Now",
     info: `Östermalms Föreningsråd is a conference facility of which I have been the IT- and 
@@ -82,7 +72,7 @@ export const projectData = [
   },
   {
     title: "Sonic Gesture Challenge",
-    image: sgc,
+    pictureNr: 3,
     year: "2020",
     info: `Sonic Gesture Challenge is a sound and gesture mapping game
       where the goal is to repeat a gesture after only hearing the
@@ -146,7 +136,7 @@ export const projectData = [
     `🕹 Co-designed the controller`],
   },
   {
-    image: pepper,
+    pictureNr: 4,
     title: "The natural language of robots",
     year: "2019",
     info: `In this project we explored the perception of robot-to-human communication using Pepper, a humanoid robot.
@@ -176,7 +166,7 @@ export const projectData = [
     ],
   },
   {
-    image: thesis,
+    pictureNr: 5,
     title: "Bass as an indicator of quality - Bachelor thesis",
     year: "2019",
     info: `As our bachelor thesis, me and Martin Linder Nilsson explored what effect 
@@ -198,7 +188,7 @@ export const projectData = [
   },
 
   {
-    image: challengeMe,
+    pictureNr: 6,
     title: "Challenge Me",
     year: "2019",
     info: `Challenge Me is an app for challenging your skater friends to bust a trick at specific locations. 
@@ -210,7 +200,7 @@ export const projectData = [
   },
 
   {
-    image: evacuateMe,
+    pictureNr: 7,
     title: "Evacuate Me",
     year: "2019",
     info: `The world has come to an end and you have to move to a new planet, but where should you go? 

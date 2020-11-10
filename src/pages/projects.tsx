@@ -8,6 +8,7 @@ import { getEmSize } from "../styles/mixins";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
+import ProjectImages from "../components/ProjectImages";
 import IndexLayout from "../layouts";
 
 const ProjectsContainer = styled(Container)`
@@ -81,10 +82,6 @@ const Button = styled.a`
   }
 `;
 
-const Image = styled.img`
-  max-height: 300px;
-`;
-
 const Video = styled.iframe`
   height: 15rem;
   border: none;
@@ -109,7 +106,11 @@ const Projects = () => (
                     title={project.title}
                   />
                 ) : (
-                  <Image src={project.image}></Image>
+                  <ProjectImages
+                    pictureNr={project.pictureNr ? project.pictureNr : 0}
+                  ></ProjectImages>
+                  // <Image src={project.image}></Image>
+                  //<Img fluid={project.image}></Img>
                 )}
               </ImageTitleContainer>
               <DescriptionText>
