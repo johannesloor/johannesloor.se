@@ -40,15 +40,15 @@ const Title = styled.h1`
   text-align: left;
   font-style: italic;
   @media (max-width: ${breakpoints.xl + "px"}) {
-    width: 70vw;
+    width: 75vw;
     margin-top: 2rem;
     min-height: 6rem;
   }
+
   @media (max-width: ${breakpoints.sm + "px"}) {
     margin-top: 1rem;
     margin-bottom: 0;
     font-size: 20pt;
-    width: 80vw;
   }
 `;
 
@@ -155,7 +155,6 @@ export default class IndexPage extends React.Component {
               <VaryingWord>{this.state.changingWord}</VaryingWord> enthusiast
             </Title>
           </SloganWrapper>
-
           <CardWrapper>
             <Card url="/projects">Projects</Card>
             <Card url="/about">About me</Card>
