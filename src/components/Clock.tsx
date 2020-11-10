@@ -104,9 +104,18 @@ const BackIcon = styled.div`
   min-height: 4rem;
 `;
 
-class Clock extends React.Component {
+type ClockState = {
+  minuteAngle: number;
+  hourAngle: number;
+};
+
+class Clock extends React.Component<{}, ClockState> {
   constructor(props: Readonly<{}>) {
     super(props);
+    this.state = {
+      minuteAngle: this.getTimeAngles()[0],
+      hourAngle: this.getTimeAngles()[1],
+    };
   }
 
   componentDidMount() {
@@ -123,11 +132,6 @@ class Clock extends React.Component {
     let hourAngle = hours * 30 + minutes / 2 - 90;
     return [minuteAngle, hourAngle];
   }
-
-  state = {
-    minuteAngle: this.getTimeAngles()[0],
-    hourAngle: this.getTimeAngles()[1],
-  };
 
   render() {
     return (
