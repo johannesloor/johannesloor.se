@@ -110,6 +110,10 @@ class Clock extends React.Component {
   }
 
   date = new Date();
+  componentDidMount() {
+    this.date = new Date();
+  }
+
   state = {
     minuteAngle: this.date.getMinutes() * 6 + 90,
     hourAngle: this.date.getHours() * 30 + this.date.getMinutes() / 2 - 90,
