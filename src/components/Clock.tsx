@@ -53,8 +53,8 @@ const MinuteWrapper = styled(HourWrapper)`
 const SecondWrapper = styled(MinuteWrapper)`
   opacity: 0;
   color: red;
-  --deg: 90deg;
-  &:active {
+  --deg: ${(props) => props.angle}deg;
+  &:hover {
     opacity: 1;
   }
 `;
@@ -110,16 +110,20 @@ class Clock extends React.Component {
   }
   state = {
     //Setting the initial time to 9:41
+    secondAngle: 90,
     minuteAngle: 336,
     hourAngle: 200.5,
   };
 
   componentDidMount() {
     let date = new Date();
+    let seconds = date.getSeconds();
     let minutes = date.getMinutes();
     let hours = date.getHours();
+    let secondAngle = seconds * 6 + 90;
     let minuteAngle = minutes * 6 + 90;
     let hourAngle = hours * 30 + minutes / 2 - 90;
+    this.setState({ secondAngle: secondAngle });
     this.setState({ minuteAngle: minuteAngle });
     this.setState({ hourAngle: hourAngle });
   }
@@ -135,7 +139,7 @@ class Clock extends React.Component {
           <MinuteWrapper angle={this.state.minuteAngle}>
             <MinuteHand>JOHANNES</MinuteHand>
           </MinuteWrapper>
-          <SecondWrapper>
+          <SecondWrapper angle={this.state.secondAngle}>
             <SecondHand>MICHAEL</SecondHand>
           </SecondWrapper>
         </ClockWrapper>
