@@ -44,7 +44,9 @@ const PageTitle: React.FC<PageTitleProps> = ({
     {linkedPage && currentPage ? (
       <Title reversed={reverse}>
         <PageName>
-          <StyledLink to={linkedPage.toLowerCase()}>{linkedPage}</StyledLink>
+          <StyledLink to={`/${linkedPage.toLowerCase()}`}>
+            {linkedPage}
+          </StyledLink>
         </PageName>
         <PageName>{currentPage}</PageName>
       </Title>
