@@ -12,24 +12,29 @@ import Container from "../components/Container";
 import github from "../images/GitHub.png";
 import linkedin from "../images/LI.png";
 
-const DescriptionWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 60vw;
-  align-items: center;
-  padding: 0 1rem 1rem;
-  margin: 0 1rem 3.5rem;
-  @media (max-width: ${breakpoints.md + "px"}) {
-    width: 90vw;
-    padding: 0;
-  }
-`;
-
-type TextProps = {
+type ReversedProp = {
   reversed?: boolean;
 };
 
-const DescriptionText = styled.div<TextProps>`
+const DescriptionWrapper = styled.div<ReversedProp>`
+  display: flex;
+  justify-content: center;
+  width: 60vw;
+  max-width: 50rem;
+  align-items: center;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: ${(props) => (props.reversed ? colors.brand : "#1982fc")};
+  border-radius: ${(props) =>
+    props.reversed ? "25px 25px 25px 0" : "30px 30px 0 30px"};
+  color: ${(props) => (props.reversed ? "black" : "white")};
+  @media (max-width: ${breakpoints.md + "px"}) {
+    width: 97vw;
+    margin: 1rem 0;
+  }
+`;
+
+const DescriptionText = styled.div<ReversedProp>`
   font-size: ${dimensions.fontSize.regular + "pt"};
   max-width: 35rem;
   padding: ${(props) => (props.reversed ? "0 0 0 1rem" : "0 1rem 0 0")};
@@ -42,18 +47,25 @@ const DescriptionText = styled.div<TextProps>`
   }
 `;
 
-const ProfilePic = styled(Img)`
+const ProfilePic = styled(Img)<ReversedProp>`
   width: 40%;
-  border-radius: 10% 0;
+  border-radius: ${(props) => (props.reversed ? "25px 0;" : "0 25px")};
   @media (min-width: ${breakpoints.xl + "px"}) {
     width: 25%;
   }
 `;
 
 const ContactWrapper = styled(DescriptionWrapper)`
+  background-color: transparent;
   justify-content: space-evenly;
+  margin: 0;
+  margin-bottom: 1rem;
   @media (min-width: ${breakpoints.xl + "px"}) {
-    padding: 0 10rem;
+    padding: 0;
+  }
+  @media (max-width: ${breakpoints.md + "px"}) {
+    margin: 0;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -97,7 +109,7 @@ const ContactInfo = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-top: 1rem;
+  //margin-top: 1rem;
   padding: 0 1rem;
 `;
 
@@ -184,12 +196,13 @@ const About: React.FC = () => {
               }}
             />
           </DescriptionWrapper>
-          <DescriptionWrapper>
+          <DescriptionWrapper reversed>
             <ProfilePic
               fluid={{
                 ...data.meApple.childImageSharp.fluid,
                 aspectRatio: 3 / 4,
               }}
+              reversed
             />
             <DescriptionText reversed>
               I am, what some would call, an Apple fanboy. My life is deeply
@@ -210,12 +223,13 @@ const About: React.FC = () => {
               }}
             />
           </DescriptionWrapper>
-          <DescriptionWrapper>
+          <DescriptionWrapper reversed>
             <ProfilePic
               fluid={{
                 ...data.meHoldingCat.childImageSharp.fluid,
                 aspectRatio: 3 / 4,
               }}
+              reversed
             />
             <DescriptionText reversed>
               I love cats and thankfully most of them seem to love me back. 😻
