@@ -62,6 +62,18 @@ module.exports = {
     "gatsby-plugin-typescript",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-react-helmet"
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Johannes Loor',
+        short_name: 'JL',
+        start_url: '/',
+        background_color: '#FFD972',
+        theme_color: '#f0f8ff',
+        display: 'minimal-ui',
+        icon: './src/images/favicon.png',
+      },
+    },
   ]
 };
