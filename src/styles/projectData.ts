@@ -5,10 +5,30 @@ import pepperpdf from "../pdfs/pepperreport.pdf";
 import soundcanvaspdf from "../pdfs/soundcanvasreport.pdf";
 import solematepdf from "../pdfs/SoleMate.pdf";
 import syntheseyeserpdf from "../pdfs/syntheseyeserreport.pdf";
+import halfwaypdf from "../pdfs/halfway.pdf";
 
 export const projectData = [
   {
     pictureNr: 0,
+    title: "Halfway",
+    year: "2020",
+    info: `Halfway is an iOS-app that myself and two classmates built with the purpose of getting hands-on experince within the field of iOS development.
+    The app is built using SwiftUI and is extended with MapKit to get all the map functionality needed. 
+    Halfway lets users, in a swift (pun intended) and easy manner, calculate the half-way point between themselves and a 
+    friend and enables temporary location sharing in secure navigation-sessions. These sessions feature real-time 
+    location updates for both parties as well as GPS navigation to a shared half-way point. Hopefully the app will end up on the Appstore in the near future!`,
+    contributions: [
+      `🎨 Co-designed the app`,
+      `📍 Built the map and location functionality`,
+      `👨‍🏫 Learned alot about SwiftUI`,
+    ],
+    externals: [{
+      url: halfwaypdf,
+      text: "Read report",
+    },],
+  },
+  {
+    pictureNr: 1,
     title: "johannesloor.se (this website)",
     year: "2020",
     info: `To showcase my projects and me as a person, I built this website using React and Gatsby. 
@@ -22,7 +42,7 @@ export const projectData = [
     ],
   },
   {
-    pictureNr: 1,
+    pictureNr: 2,
     title: "Osqledaren.se",
     year: "2019/2020",
     info: `Osqledaren is the student union newspaper at KTH. For the
@@ -37,7 +57,7 @@ export const projectData = [
     externals: [{ url: "https://osqledaren.se", text: "Go to website" }],
   },
   {
-    pictureNr: 2,
+    pictureNr: 3,
     title: "Östermalms Föreningsråd",
     year: "2016 - Now",
     info: `Östermalms Föreningsråd is a conference facility of which I have been the IT- and 
@@ -72,7 +92,7 @@ export const projectData = [
   },
   {
     title: "Sonic Gesture Challenge",
-    pictureNr: 3,
+    pictureNr: 4,
     year: "2020",
     info: `Sonic Gesture Challenge is a sound and gesture mapping game
       where the goal is to repeat a gesture after only hearing the
@@ -136,7 +156,7 @@ export const projectData = [
     `🕹 Co-designed the controller`],
   },
   {
-    pictureNr: 4,
+    pictureNr: 5,
     title: "The natural language of robots",
     year: "2019",
     info: `In this project we explored the perception of robot-to-human communication using Pepper, a humanoid robot.
@@ -166,7 +186,7 @@ export const projectData = [
     ],
   },
   {
-    pictureNr: 5,
+    pictureNr: 6,
     title: "Bass as an indicator of quality - Bachelor thesis",
     year: "2019",
     info: `As our bachelor thesis, me and Martin Linder Nilsson explored what effect 
@@ -188,7 +208,7 @@ export const projectData = [
   },
 
   {
-    pictureNr: 6,
+    pictureNr: 7,
     title: "Challenge Me",
     year: "2019",
     info: `Challenge Me is an app for challenging your skater friends to bust a trick at specific locations. 
@@ -200,7 +220,7 @@ export const projectData = [
   },
 
   {
-    pictureNr: 7,
+    pictureNr: 8,
     title: "Evacuate Me",
     year: "2019",
     info: `The world has come to an end and you have to move to a new planet, but where should you go? 

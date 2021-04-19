@@ -16,6 +16,13 @@ const Image = styled(Img)``;
 const ProjectImages: React.FC<ProjectImagesProps> = ({ pictureNr }) => {
   const data = useStaticQuery(graphql`
     query {
+      halfway: file(relativePath: { eq: "halfway.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       myWebsite: file(relativePath: { eq: "myWebsite.png" }) {
         childImageSharp {
           fluid {
@@ -76,6 +83,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ pictureNr }) => {
   `);
 
   const images = [
+    data.halfway.childImageSharp.fluid,
     data.myWebsite.childImageSharp.fluid,
     data.Osqledaren.childImageSharp.fluid,
     data.ofr.childImageSharp.fluid,
@@ -90,7 +98,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ pictureNr }) => {
     <ImageContainer>
       <Image
         fluid={images[pictureNr]}
-        style={{ width: images[pictureNr].aspectRatio > 1 ? "100%" : "75%" }}
+        style={{ width: images[pictureNr].aspectRatio > 1 ? "100%" : "65%" }}
       />
     </ImageContainer>
   );
