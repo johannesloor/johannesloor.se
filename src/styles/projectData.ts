@@ -28,7 +28,7 @@ export const projectData = [
     pictureNr: 1,
     title: "Halfway",
     year: "iOS-app, 2020",
-    info: `Halfway is an iOS-app that myself and two classmates built with the purpose of getting hands-on experince within the field of iOS development.
+    info: `Halfway is an iOS-app that myself and two classmates built with the purpose of getting hands-on experience within the field of iOS development.
     The app is built using SwiftUI and is extended with MapKit to get all the map functionality needed. 
     Halfway lets users, in a swift (pun intended) and easy manner, calculate the half-way point between themselves and a 
     friend and enables temporary location sharing in secure navigation-sessions. These sessions feature real-time 
