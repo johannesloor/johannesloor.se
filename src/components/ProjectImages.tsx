@@ -16,6 +16,13 @@ const Image = styled(Img)``;
 const ProjectImages: React.FC<ProjectImagesProps> = ({ pictureNr }) => {
   const data = useStaticQuery(graphql`
     query {
+      svtUI: file(relativePath: { eq: "svtui.PNG" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       halfway: file(relativePath: { eq: "halfway.png" }) {
         childImageSharp {
           fluid {
@@ -83,6 +90,7 @@ const ProjectImages: React.FC<ProjectImagesProps> = ({ pictureNr }) => {
   `);
 
   const images = [
+    data.svtUI.childImageSharp.fluid,
     data.halfway.childImageSharp.fluid,
     data.myWebsite.childImageSharp.fluid,
     data.Osqledaren.childImageSharp.fluid,

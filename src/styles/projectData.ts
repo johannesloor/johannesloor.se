@@ -8,10 +8,26 @@ import syntheseyeserpdf from "../pdfs/syntheseyeserreport.pdf";
 import halfwaypdf from "../pdfs/halfway.pdf";
 
 export const projectData = [
-  {
+    {
     pictureNr: 0,
+    title: "SvtUI",
+    year: "Master Thesis (iOS-app), 2021",
+    info: `As the final part of my masters in Interactive Media Technology at KTH, 
+    I am currently writing my master thesis on the topic of programming language assessment and evaluation. 
+    In collaboration with the Svt-play mobile team, I have built a new version of Svt-Play with focus on implementing SwiftUI. 
+    The code, my experience of implementing it and SwiftUI in general is going to be analysed and summed up in my thesis, 
+    focusing mainly on assessing the novel framework. Hopefully the results will also provide Svt with an idea of the scope 
+    of implementing SwiftUI in the future. `,
+    contributions: [
+      `📱 Broadened my knowledge of Swift, SwiftUI and iOS-development`,
+      `🤹‍♂️ Learned from and worked together with an agile team at Svt`,
+      `🔍 Explored ways of analyzing and assessing programming languages/frameworks`,
+    ],
+  },
+  {
+    pictureNr: 1,
     title: "Halfway",
-    year: "2020",
+    year: "iOS-app, 2020",
     info: `Halfway is an iOS-app that myself and two classmates built with the purpose of getting hands-on experince within the field of iOS development.
     The app is built using SwiftUI and is extended with MapKit to get all the map functionality needed. 
     Halfway lets users, in a swift (pun intended) and easy manner, calculate the half-way point between themselves and a 
@@ -28,9 +44,9 @@ export const projectData = [
     },],
   },
   {
-    pictureNr: 1,
-    title: "johannesloor.se (this website)",
-    year: "2020",
+    pictureNr: 2,
+    title: "johannesloor.se",
+    year: "This website, 2020",
     info: `To showcase my projects and me as a person, I built this website using React and Gatsby. 
     The concept around it, except acting as my portfolio, was to make something that seems ordinary but 
     when you hover and click on things, goofy things happen.`,
@@ -42,9 +58,9 @@ export const projectData = [
     ],
   },
   {
-    pictureNr: 2,
+    pictureNr: 3,
     title: "Osqledaren.se",
-    year: "2019/2020",
+    year: "Website, 2019-2020",
     info: `Osqledaren is the student union newspaper at KTH. For the
       semester of 2019/2020 I was responsible for the website and lead
       a team of eight people in building a completely new website. The new
@@ -57,9 +73,9 @@ export const projectData = [
     externals: [{ url: "https://osqledaren.se", text: "Go to website" }],
   },
   {
-    pictureNr: 3,
+    pictureNr: 4,
     title: "Östermalms Föreningsråd",
-    year: "2016 - Now",
+    year: "Website, 2016-2020",
     info: `Östermalms Föreningsråd is a conference facility of which I have been the IT- and 
     technical support person at for the last couple of years. My main responsibility has been 
     managing the website, which is Wordpress-driven and serves as place where customers 
@@ -74,7 +90,7 @@ export const projectData = [
   {
     title: "SoleMate",
     vimeoId: "475384468",
-    year: "2020",
+    year: "Interactive shoe soles, 2020",
     info: `SoleMate is an explorative design project striving to achieve the ambient feeling of 
     copresence between people without the need of physical presence. 
     Two pairs of shoe soles are equipped with pressure sensors and vibration motors and are connected 
@@ -92,8 +108,8 @@ export const projectData = [
   },
   {
     title: "Sonic Gesture Challenge",
-    pictureNr: 4,
-    year: "2020",
+    pictureNr: 5,
+    year: "Web-based music app, 2020",
     info: `Sonic Gesture Challenge is a sound and gesture mapping game
       where the goal is to repeat a gesture after only hearing the
       sound it produces. This was a really fun project focusing on how to make sound
@@ -119,7 +135,7 @@ export const projectData = [
   {
     title: "Sound Canvas",
     vimeoId: "458073967",
-    year: "2020",
+    year: "Art installation, 2020",
     info: `Sound Canvas is an art installation that knows where on the blank canvas the user is looking. 
     Using this information it plays different sounds, matching various environments, 
     making the user feel as if they are walking within the painting, just by looking around. 
@@ -136,7 +152,7 @@ export const projectData = [
   {
     vimeoId: "458073950",
     title: "Open Riksdag",
-    year: "2020",
+    year: "Website, 2020",
     info: `As a project in a course about information visualization, 
     the Open Riksdag website was built to visualize the flow of motions and 
     proposals in the Swedish parliamentary system. 
@@ -147,7 +163,7 @@ export const projectData = [
   {
     vimeoId: "458073896",
     title: "Brushi",
-    year: "2019",
+    year: "Kids game, 2019",
     info: `Brushi is an interactive game with the main objective of making it more engaging for children 
     to brush their teeth. The game is controlled by brushing your own teeth and has four levels corresponding 
     to different parts of the mouth. Building the game and the controller from scratch was a really fun design challenge
@@ -156,9 +172,9 @@ export const projectData = [
     `🕹 Co-designed the controller`],
   },
   {
-    pictureNr: 5,
+    pictureNr: 6,
     title: "The natural language of robots",
-    year: "2019",
+    year: "Robot research, 2019",
     info: `In this project we explored the perception of robot-to-human communication using Pepper, a humanoid robot.
     Pepper was programmed to react to a story, told by user test participants, with either gestures and sounds or solely with gestures. 
     This was done to see if and how the users perception of the robot changed depending on auditory feedback. `,
@@ -173,7 +189,7 @@ export const projectData = [
   {
     vimeoId: "458074093",
     title: "SynthesEyeser",
-    year: "2019",
+    year: "Music instrument, 2019",
     info: `While exploring multimodal interactions, the gaze and gesture based instrument SynthesEyeser was built. 
     The instrument uses a Tobii eye-tracker to understand where, on the custom built UI, the player is looking changing the pitch and amount of effect applied to the sound.
     The volume is controlled through gestures infront of a proximity sensor. All of which is controlled via a Bela micro-controller.`,
@@ -186,9 +202,9 @@ export const projectData = [
     ],
   },
   {
-    pictureNr: 6,
-    title: "Bass as an indicator of quality - Bachelor thesis",
-    year: "2019",
+    pictureNr: 7,
+    title: "Bass as an indicator of quality",
+    year: "Bachelor thesis, 2019",
     info: `As our bachelor thesis, me and Martin Linder Nilsson explored what effect 
     the amount of bass in headphones had on the perception of quality. This was done by fooling users,
     making them believe that they tried different pairs of headphones when infact they used the same pair every time, 
@@ -208,9 +224,9 @@ export const projectData = [
   },
 
   {
-    pictureNr: 7,
+    pictureNr: 8,
     title: "Challenge Me",
-    year: "2019",
+    year: "React Native app, 2019",
     info: `Challenge Me is an app for challenging your skater friends to bust a trick at specific locations. 
     Once you have added a challenge, your friends can find them on the map and take on the challenge. 
     This prototype was built using Reactive Native with the aim to explore mobile development in general 
@@ -220,9 +236,9 @@ export const projectData = [
   },
 
   {
-    pictureNr: 8,
+    pictureNr: 9,
     title: "Evacuate Me",
-    year: "2019",
+    year: "Website, 2019",
     info: `The world has come to an end and you have to move to a new planet, but where should you go? 
     Tatooine? Naboo? Or maybe Endor? Evacuate Me is a website that helps you decide by narrowing down your 
     choices according to your preferred weather, population size, gravity and even time. 
