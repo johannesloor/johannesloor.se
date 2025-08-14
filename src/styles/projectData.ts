@@ -70,7 +70,6 @@ export const projectData = [
       `✂️ Organized brainstorms and team buildings`,
       "👨‍💻 Co-built the website",
     ],
-    externals: [{ url: "https://osqledaren.se", text: "Go to website" }],
   },
   {
     pictureNr: 4,
@@ -85,7 +84,6 @@ export const projectData = [
       `🛠 General maintenance`,
       `⛑ Helped colleagues with other technical issues`,
     ],
-    externals: [{ url: "http://www.lokomalm.se", text: "Go to website" }],
   },
   {
     title: "SoleMate",
