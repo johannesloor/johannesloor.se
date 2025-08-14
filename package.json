@@ -28,6 +28,8 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
     "babel-plugin-styled-components": "^2.1.4",
     "classnames": "^2.5.1",
     "gatsby": "^5.14.6",
@@ -58,12 +60,12 @@
     "typescript": "^5.9.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
     "@types/classnames": "^2.3.4",
     "@types/node": "^24.2.1",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@types/react-helmet": "^6.1.11",
-    "@eslint/js": "^9.33.0",
     "@typescript-eslint/eslint-plugin": "^8.39.1",
     "@typescript-eslint/parser": "^8.39.1",
     "eslint": "^9.33.0",
