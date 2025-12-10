@@ -1,6 +1,9 @@
 "use strict";
 
 module.exports = {
+  flags: {
+    DEV_SSR: false
+  },
   siteMetadata: {
     title: "Johannes Loor",
     description: "Portfolio for Johannes Loor",

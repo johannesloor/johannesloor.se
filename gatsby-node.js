@@ -83,3 +83,21 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
+  // Disable ESLint plugin to avoid deprecated options error
+  if (stage === 'develop') {
+    const config = getConfig()
+    const miniCssExtractPlugin = config.plugins.find(
+      plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+    )
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true
+    }
+    // Remove ESLint plugin
+    config.plugins = config.plugins.filter(
+      plugin => plugin.constructor.name !== 'ESLintWebpackPlugin'
+    )
+    actions.replaceWebpackConfig(config)
+  }
+}
