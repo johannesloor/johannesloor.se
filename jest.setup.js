@@ -38,6 +38,21 @@ jest.mock('gatsby-plugin-image', () => {
   };
 }, { virtual: true });
 
+// Mock @reach/router (used by Gatsby for Location)
+jest.mock('@reach/router', () => {
+  const React = require('react');
+  
+  return {
+    Location: jest.fn().mockImplementation(({ children }) =>
+      children({ location: { pathname: '/' } })
+    ),
+    Router: jest.fn().mockImplementation(({ children }) => children),
+    navigate: jest.fn(),
+    useLocation: jest.fn().mockReturnValue({ pathname: '/' }),
+    useNavigate: jest.fn(),
+  };
+}, { virtual: true });
+
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
