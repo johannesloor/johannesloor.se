@@ -10,5 +10,5 @@ if [ ! -f "$PROMPT_FILE" ]; then
 fi
 
 echo "=== Running Ralph (single iteration) ==="
-cd "$SCRIPT_DIR"
-copilot --allow-all-tools "$(cat "$PROMPT_FILE")"
+cd "$SCRIPT_DIR/.."
+cat "$PROMPT_FILE" | copilot --allow-all-tools

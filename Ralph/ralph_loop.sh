@@ -16,12 +16,12 @@ echo "=== Ralph Loop Started ==="
 echo "Max iterations: $MAX_ITERATIONS"
 echo ""
 
-cd "$SCRIPT_DIR"
+cd "$SCRIPT_DIR/.."
 
 for i in $(seq 1 $MAX_ITERATIONS); do
     echo "--- Iteration $i of $MAX_ITERATIONS ---"
     
-    OUTPUT=$(copilot --allow-all-tools "$(cat "$PROMPT_FILE")" 2>&1 | tee /dev/stderr) || true
+    OUTPUT=$(cat "$PROMPT_FILE" | copilot --allow-all-tools 2>&1 | tee /dev/stderr) || true
 
     if echo "$OUTPUT" | grep -q "$COMPLETION_MARKER"; then
         echo ""
