@@ -32,6 +32,7 @@ interface PageTitleProps {
   currentPage?: string;
   linkedPage?: string;
   reverse?: boolean;
+  children?: React.ReactNode;
 }
 
 const PageTitle: React.FC<PageTitleProps> = ({

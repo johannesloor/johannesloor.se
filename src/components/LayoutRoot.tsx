@@ -11,6 +11,7 @@ const StyledLayoutRoot = styled.div`
 
 interface LayoutRootProps {
   className?: string;
+  children?: React.ReactNode;
 }
 
 const LayoutRoot: React.FC<LayoutRootProps> = ({ children, className }) => (

@@ -34,6 +34,7 @@ const ButtonText = styled.div`
 
 interface CardProps {
   url?: string;
+  children?: React.ReactNode;
 }
 
 const Card: React.FC<CardProps> = ({ children, url }) => (

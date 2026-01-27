@@ -84,8 +84,8 @@ function getWord() {
   return word;
 }
 
-export default class IndexPage extends React.Component {
-  constructor(props: Readonly<{}>) {
+export default class IndexPage extends React.Component<Record<string, never>> {
+  constructor(props: Readonly<Record<string, never>>) {
     super(props);
   }
   wordErased = false;
@@ -102,19 +102,19 @@ export default class IndexPage extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.state.intervalID);
-    clearTimeout(this.state.timerID);
+    window.clearInterval(this.state.intervalID);
+    window.clearTimeout(this.state.timerID);
   }
 
   setIntervalState() {
-    let intervalID = setInterval(() => this.handleWordChange(), 150);
+    let intervalID = window.setInterval(() => this.handleWordChange(), 150);
     this.setState({ intervalID: intervalID });
   }
 
   startInterval() {
-    clearInterval(this.state.intervalID);
-    clearTimeout(this.state.timerID);
-    let timerID = setTimeout(() => this.setIntervalState(), 1500);
+    window.clearInterval(this.state.intervalID);
+    window.clearTimeout(this.state.timerID);
+    let timerID = window.setTimeout(() => this.setIntervalState(), 1500);
     this.setState({ timerID: timerID });
   }
 

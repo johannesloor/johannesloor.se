@@ -104,8 +104,8 @@ const BackIcon = styled.div`
   min-height: 4rem;
 `;
 
-class Clock extends React.Component {
-  constructor(props: Readonly<{}>) {
+class Clock extends React.Component<Record<string, never>> {
+  constructor(props: Readonly<Record<string, never>>) {
     super(props);
   }
   state = {

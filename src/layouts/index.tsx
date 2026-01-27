@@ -20,7 +20,11 @@ interface StaticQueryProps {
   };
 }
 
-const IndexLayout: React.FC = ({ children }) => (
+interface IndexLayoutProps {
+  children?: React.ReactNode;
+}
+
+const IndexLayout: React.FC<IndexLayoutProps> = ({ children }) => (
   <StaticQuery
     query={graphql`
       query IndexLayoutQuery {

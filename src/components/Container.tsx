@@ -14,6 +14,7 @@ const StyledContainer = styled.div`
 
 interface ContainerProps {
   className?: string;
+  children?: React.ReactNode;
 }
 
 const Container: React.FC<ContainerProps> = ({ children, className }) => (

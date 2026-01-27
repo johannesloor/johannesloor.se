@@ -13,6 +13,7 @@ const StyledLayoutMain = styled.main`
 
 interface LayoutMainProps {
   className?: string;
+  children?: React.ReactNode;
 }
 
 const LayoutMain: React.FC<LayoutMainProps> = ({ children, className }) => (

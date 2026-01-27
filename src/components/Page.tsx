@@ -17,6 +17,7 @@ const StyledPage = styled.div`
 
 interface PageProps {
   className?: string;
+  children?: React.ReactNode;
 }
 
 const Page: React.FC<PageProps> = ({ children, className }) => (
