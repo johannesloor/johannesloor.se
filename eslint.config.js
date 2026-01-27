@@ -58,6 +58,8 @@ export default [
         beforeAll: 'readonly',
         afterAll: 'readonly',
         jest: 'readonly',
+        require: 'readonly',
+        globalThis: 'readonly',
       },
     },
   },
