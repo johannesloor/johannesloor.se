@@ -112,7 +112,7 @@ class Clock extends React.Component<Record<string, never>> {
     //Setting the initial time to 9:41
     secondAngle: 90,
     minuteAngle: 336,
-    hourAngle: 200.5,
+    hourAngle: 380.5,
   };
 
   componentDidMount() {
@@ -122,7 +122,7 @@ class Clock extends React.Component<Record<string, never>> {
     let hours = date.getHours();
     let secondAngle = seconds * 6 + 90;
     let minuteAngle = minutes * 6 + 90;
-    let hourAngle = hours * 30 + minutes / 2 - 90;
+    let hourAngle = hours * 30 + minutes / 2 + 90;
     this.setState({ secondAngle: secondAngle });
     this.setState({ minuteAngle: minuteAngle });
     this.setState({ hourAngle: hourAngle });
